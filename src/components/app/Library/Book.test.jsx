@@ -10,7 +10,7 @@ describe('book component', () => {
       author="evil woman"
       src="harry.jpg"
       provided={{ draggableProps: 'hello',
-    dragHandleProps: 'hello' }}
+        dragHandleProps: 'hello' }}
     />);
     expect(asFragment()).toMatchSnapshot();
   });
