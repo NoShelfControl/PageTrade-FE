@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`book component renders Article 1`] = `
+<DocumentFragment>
+  <div>
+    <img
+      alt="harry potter"
+      src="harry.jpg"
+    />
+    <div
+      class="name"
+    >
+      harry potter
+    </div>
+  </div>
+</DocumentFragment>
+`;

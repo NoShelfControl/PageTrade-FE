@@ -18,8 +18,8 @@ class Book extends React.Component {
 }
 
 Book.propTypes = {
-  provided: PropTypes.any.isRequired,
-  innerRef: PropTypes.any.isRequired,
+  provided: PropTypes.any,
+  innerRef: PropTypes.any,
   src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };

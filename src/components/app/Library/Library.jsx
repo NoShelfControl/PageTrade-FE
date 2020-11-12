@@ -71,7 +71,6 @@ export default class Library extends Component {
       items: [],
       selected: [],
       selectedItem: '',
-      books: [],
       showModal: false,
       search: '',
       searchResults: []
@@ -148,9 +147,9 @@ export default class Library extends Component {
     };
 
     addToList = (book) => {
-      const books = this.state.books;
-      books.push(book);
-      this.setState({ items: books });
+      const items = this.state.items;
+      items.push(book);
+      this.setState({ items });
     }
 
     alertItem = (draggableId) => {
@@ -159,8 +158,6 @@ export default class Library extends Component {
       this.setState({ selectedItem });
     }
 
-    // Normally you would want to split things out into separate components.
-    // But in this example everything is just done in one place for simplicity
     render() {
       return (
         <div className={styles.container}>
@@ -168,7 +165,7 @@ export default class Library extends Component {
           <ReactModal 
             styles={customStyles}
             isOpen={this.state.showModal}
-            contentLabel="Minimal Modal Example"
+            contentLabel="SearchBox"
           >
             <input onChange={this.handleSearchChange} />
             <button onClick={this.handleSearch}>Search</button>
