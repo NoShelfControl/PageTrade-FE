@@ -9,3 +9,9 @@ PageTrade is your own personal book catalogue. Looking to add a particular copy 
 <li>Heather Peterson</li>
 <li>Ryan Diffenbaugh</li>
 </ul>
+
+
+# Wireframes:
+
+![Models]('./Miroboards/Models.png')
+![Wireframes]('./Miroboards/Wireframes.png')
