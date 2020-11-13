@@ -2,12 +2,14 @@
 
 exports[`App component renders App 1`] = `
 <DocumentFragment>
+  <button
+    class="addButton"
+  >
+    ADD
+  </button>
   <div
     class="container"
   >
-    <button>
-      ADD
-    </button>
     <div
       class="leftBox"
       style="background: lightgrey; padding: 8px; width: 250px;"
@@ -19,9 +21,26 @@ exports[`App component renders App 1`] = `
       </div>
     </div>
     <div
+      class="middleDiv"
+    >
+      Drag a book to offer for trade
+      <br />
+      <img
+        alt="right arrow"
+        class="arrow"
+        src="src\\\\assets\\\\right-arrow.png"
+      />
+    </div>
+    <div
       class="rightBox"
       style="background: lightgrey; padding: 8px; width: 250px;"
-    />
+    >
+      <div
+        class="booksToTrade"
+      >
+        Books to trade
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;
