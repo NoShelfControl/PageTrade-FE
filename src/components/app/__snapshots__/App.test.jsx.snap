@@ -2,8 +2,45 @@
 
 exports[`App component renders App 1`] = `
 <DocumentFragment>
-  <h1>
-    Hello World
-  </h1>
+  <button
+    class="addButton"
+  >
+    ADD
+  </button>
+  <div
+    class="container"
+  >
+    <div
+      class="leftBox"
+      style="background: lightgrey; padding: 8px; width: 250px;"
+    >
+      <div
+        class="addABook"
+      >
+        Add a book!
+      </div>
+    </div>
+    <div
+      class="middleDiv"
+    >
+      Drag a book to offer for trade
+      <br />
+      <img
+        alt="right arrow"
+        class="arrow"
+        src="src\\\\assets\\\\right-arrow.png"
+      />
+    </div>
+    <div
+      class="rightBox"
+      style="background: lightgrey; padding: 8px; width: 250px;"
+    >
+      <div
+        class="booksToTrade"
+      >
+        Books to trade
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;
