@@ -16,17 +16,6 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
-
 /*
  * Moves an item from one list to another list.
  */
@@ -91,7 +80,8 @@ export default class Library extends Component {
     this.setState({ search: e.target.value });
   }
 
-  handleSearch = async() => {
+  handleSearch = async(e) => {
+    e.preventDefault();
     const results =  await getBooks(this.state.search);
     this.setState({ results });
   }
@@ -150,6 +140,7 @@ export default class Library extends Component {
       const items = this.state.items;
       items.push(book);
       this.setState({ items });
+      this.handleCloseModal();
     }
 
     alertItem = (draggableId) => {
@@ -160,31 +151,72 @@ export default class Library extends Component {
 
     render() {
       return (
-        <div className={styles.container}>
-          <button onClick={this.handleOpenModal}>ADD</button>
-          <ReactModal 
-            styles={customStyles}
-            isOpen={this.state.showModal}
-            contentLabel="SearchBox"
-          >
-            <input onChange={this.handleSearchChange} />
-            <button onClick={this.handleSearch}>Search</button>
-            <ul>
-              {this.state.results ? this.state.results.map(book => (
-                <li key={book.id} onClick={() => this.addToList(book)}>{book.title}</li>
-              )
-              ) : null}
-            </ul>
-            <button onClick={this.handleCloseModal}>Close Modal</button>
-          </ReactModal>
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable droppableId="droppable">
-              {(provided, snapshot) => (
-                <div className={styles.leftBox}
-                  ref={provided.innerRef}
-                  style={getListStyle(snapshot.isDraggingOver)}>
-                  {this.state.items.length > 0 ? 
-                    this.state.items.map((item, index) => (
+        <>
+          <button className={styles.addButton} onClick={this.handleOpenModal}>ADD</button>
+          <div className={styles.container}>
+            <ReactModal 
+              styles={styles.modal}
+              isOpen={this.state.showModal}
+              contentLabel="SearchBox"
+            >
+              <form onSubmit={this.handleSearch}>
+                <input onChange={this.handleSearchChange} />
+                <button>Search</button>
+              </form>
+              <ul className={styles.resultList}>
+                {this.state.results ? this.state.results.map(book => (
+                  <div className={styles.resultItem} onClick={() => this.addToList(book)} key={book.id}>
+                    <img src={book.image} />
+                    <li>{book.title}</li>
+                  </div>
+                )
+                ) : null}
+              </ul>
+              <button onClick={this.handleCloseModal}>Close Modal</button>
+            </ReactModal>
+            <DragDropContext onDragEnd={this.onDragEnd}>
+              <Droppable droppableId="droppable">
+                {(provided, snapshot) => (
+                  <div className={styles.leftBox}
+                    ref={provided.innerRef}
+                    style={getListStyle(snapshot.isDraggingOver)}>
+                    {this.state.items.length > 0 ? 
+                      this.state.items.map((item, index) => (
+                        <Draggable
+                          key={item.id}
+                          draggableId={item.id}
+                          index={index}>
+                          {(provided, snapshot) => (
+                            <Book
+                              src={item.image}
+                              name={item.title}
+                              innerRef={provided.innerRef}
+                              provided={provided}
+                              style={getItemStyle(
+                                snapshot.isDragging,
+                                provided.draggableProps.style
+                              )}
+                            />
+                          )}
+                        </Draggable>
+                    
+                      )) : <div className={styles.addABook}>Add a book!</div>}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+              <div className={styles.middleDiv}>
+                Drag a book to offer for trade
+                <br />
+                <img className={styles.arrow} src="src\assets\right-arrow.png" alt="right arrow" />
+              </div>
+              <Droppable droppableId="droppable2">
+                {(provided, snapshot) => (
+                  <div
+                    className={styles.rightBox}
+                    ref={provided.innerRef}
+                    style={getListStyle(snapshot.isDraggingOver)}>
+                    {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
                       <Draggable
                         key={item.id}
                         draggableId={item.id}
@@ -202,43 +234,15 @@ export default class Library extends Component {
                           />
                         )}
                       </Draggable>
-                    
-                    )) : <div className={styles.addABook}>Add a book!</div>}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-            <Droppable droppableId="droppable2">
-              {(provided, snapshot) => (
-                <div
-                  className={styles.rightBox}
-                  ref={provided.innerRef}
-                  style={getListStyle(snapshot.isDraggingOver)}>
-                  {this.state.selected.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id}
-                      index={index}>
-                      {(provided, snapshot) => (
-                        <Book
-                          src={item.image}
-                          name={item.title}
-                          innerRef={provided.innerRef}
-                          provided={provided}
-                          style={getItemStyle(
-                            snapshot.isDragging,
-                            provided.draggableProps.style
-                          )}
-                        />
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </div>
+                    )) 
+                      : <div className={styles.booksToTrade}>Books to trade</div>}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </div>
+        </>
       );
     }
 }
