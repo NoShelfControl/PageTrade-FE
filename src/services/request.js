@@ -10,7 +10,7 @@ const request = async(path, method, body) => {
       : null  
   });
 
-  const json = - await res.json();
+  const json = await res.json();
 
   if(!res.ok) throw json;
   return json;

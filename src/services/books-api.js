@@ -1,6 +1,4 @@
-import { get } from "./request";
-
-const URL = process.env.BACKEND_URL;
+import { get, post } from './request';
 
 /* eslint-disable max-len */
 export const getBooks = search => {
@@ -9,29 +7,25 @@ export const getBooks = search => {
     .then(json => json.items.map(book => ({
       id: book.id,
       title: book.volumeInfo.title,
-      author: book.volumeInfo.author,
+      author: book.volumeInfo.authors[0],
       image: book.volumeInfo.imageLinks.thumbnail,
+      isTradeable: false
     })));
 };
 
 export const postUserBook = (book) => {
-  return fetch (`${URL}/api/v1/books`, {
-    method: 'POST',
-    body: JSON.stringify({ 
-      title: book.title,
-      author: book.author,
-      googleId: book.googleId,
-      image: book.image,
-      isTradeable: book.isTradeable
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(res => res.json());
+  return post('/api/v1/books', { 
+    title: book.title,
+    author: book.author,
+    googleId: book.id,
+    image: book.image,
+    isTradeable: book.isTradeable
+  });
 };
 
 export const getUserBooks = () => {
-  return get('/api/v1/books/')
-    .then(json => json.books.map(book => ({
+  return get('/api/v1/books')
+    .then(books => books.map(book => ({
       id: book.id,
       title: book.title,
       author: book.author,

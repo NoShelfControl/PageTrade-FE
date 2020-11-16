@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { getBooks, getUserBooks } from '../../../services/books-api';
+import { getBooks, getUserBooks, postUserBook } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -24,7 +24,8 @@ export default class Library extends Component {
   }
 
   componentDidMount = async() => {
-    const userBooks = await getUserBooks(this.props.match.params.id);
+    const userBooks = await getUserBooks();
+    console.log(userBooks);
     this.setState({ items: userBooks });
   }
 
@@ -104,6 +105,8 @@ export default class Library extends Component {
       else {      
         items.push(book);
         this.setState({ items });
+        console.log(book);
+        postUserBook(book);
         this.handleCloseModal();
       }
     };
