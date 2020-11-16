@@ -1,5 +1,5 @@
 const request = async(path, method, body) => {
-    const res = await fetch(`${process.env.API_URL}${path}`, {
+    const res = await fetch(`${process.env.API_URL}${path}` , {
         method,
         headers: ['POST', 'PUT', 'PATCH'].includes(method)
           ? { 'Content-Type': 'application/json' }
