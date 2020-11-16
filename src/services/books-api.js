@@ -1,3 +1,5 @@
+import { get } from "./request";
+
 const URL = process.env.BACKEND_URL;
 
 /* eslint-disable max-len */
@@ -18,9 +20,9 @@ export const postUserBook = (book) => {
     body: JSON.stringify({ 
       title: book.title,
       author: book.author,
-      google_id: book.google_id,
+      googleId: book.googleId,
       image: book.image,
-      is_tradeable: book.is_tradeable
+      isTradeable: book.isTradeable
     }),
     headers: { 'Content-Type': 'application/json' }
   })
@@ -28,16 +30,13 @@ export const postUserBook = (book) => {
 };
 
 export const getUserBooks = () => {
-  return fetch(`${URL}/api/v1/books/`)
-    .then(res => res.json())
+  return get('/api/v1/books/')
     .then(json => json.books.map(book => ({
       id: book.id,
       title: book.title,
       author: book.author,
-      google_id: book.google_id,
-      owner_id: book.owner_id,
+      googleId: book.googleId,
       image: book.image,
-      is_tradeable: book.is_tradeable
-    })))
-    .then(res => console.log(res));
+      isTradeable: book.isTradeable
+    })));
 };

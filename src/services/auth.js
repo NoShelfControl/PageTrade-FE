@@ -7,4 +7,4 @@ export const postLogin = (email, password) =>
   post('/api/v1/login', { email, password });
 
 export const getVerify = () => 
-  get('/api/v1/auth/verify');
+  get('/api/v1/verify');
