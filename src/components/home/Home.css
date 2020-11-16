@@ -1,0 +1,40 @@
+.Home{
+  margin: 0px;
+  padding: 0px;
+  }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 40px;
+    background-color: #82A3A1;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    button {
+      border-radius: 5px;
+    }
+    button:hover{
+      cursor: pointer;
+      background-color: #F28F3B ;
+    }
+  }
+  .Main{
+    margin: 20px;
+    padding: 20px;
+    .BookSection {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      min-height: 200px;
+      justify-content: center;
+    }
+    div{
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: solid;
+    }
+  }
+  footer {
+    text-align: center;
+    text-decoration: none;
+  }
