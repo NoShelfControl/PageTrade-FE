@@ -9,6 +9,7 @@ import PrivateRoute from '../auth/private/PrivateRoute';
 import Signup from '../auth/signup/Signup';
 import Dashboard from '../dashboard/Dashboard';
 import Home from '../home/Home';
+import Library from './Library/Library';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/library" component={Library} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </Switch>
     </AuthProvider>
