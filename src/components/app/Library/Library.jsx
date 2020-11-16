@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { getBooks } from '../../../services/books-api';
+import { getBooks, getUserBooks } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -21,6 +21,11 @@ export default class Library extends Component {
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this); 
+  }
+
+  componentDidMount = async() => {
+    const userBooks = await getUserBooks(this.props.match.params.id);
+    this.setState({ items: userBooks });
   }
 
   handleOpenModal() {
