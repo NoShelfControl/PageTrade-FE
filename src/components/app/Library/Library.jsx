@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { getBooks, getUserBooks, postUserBook } from '../../../services/books-api';
+import { getBooks, getUserBooks, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -111,9 +111,11 @@ export default class Library extends Component {
       }
     };
 
-    alertItem = (draggableId) => {
+    alertItem = async(draggableId) => {
       const selectedItem = this.state.selected.find(x => x.id === draggableId);
-      selectedItem.isForTrade = true;
+      selectedItem.isTradeable = true;
+      console.log(selectedItem);
+      await updateTradeable({ ...selectedItem });
       this.setState({ selectedItem });
     }
 

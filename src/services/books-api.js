@@ -1,4 +1,4 @@
-import { get, post } from './request';
+import { get, post, put } from './request';
 
 /* eslint-disable max-len */
 export const getBooks = search => {
@@ -31,6 +31,12 @@ export const getUserBooks = () => {
       author: book.author,
       googleId: book.googleId,
       image: book.image,
-      isTradeable: book.isTradeable
+      isTradeable: book.isTradeable,
+      ownerId: book.ownerId
     })));
+};
+
+export const updateTradeable = (book) => {
+  return put('/api/v1/books', book)
+    .then(res => console.log(res));
 };
