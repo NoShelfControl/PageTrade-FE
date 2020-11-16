@@ -9,7 +9,11 @@ class Book extends React.Component {
       <div
         {...provided.draggableProps}
         {...provided.dragHandleProps}
-        ref={innerRef}>
+        ref={innerRef}
+        className={styles.bigDiv}>
+        <div 
+          className={styles.deleteButton} 
+          onClick={this.props.handleDelete}>X</div>
         <img src={this.props.src} alt={this.props.name} />
         <div className={styles.name}>{this.props.name}</div>
       </div>
@@ -22,6 +26,7 @@ Book.propTypes = {
   innerRef: PropTypes.any,
   src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  handleDelete: PropTypes.func.isRequired
 };
 
 export default Book;
