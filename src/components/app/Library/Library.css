@@ -9,6 +9,16 @@
   text-align: center;
 }
 
+.trashCan {
+  position: relative;
+  right: 0;
+  top: 500px;
+  height: 200px;
+  margin-left: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
 .leftBox {
   position: relative;
   left: 0;

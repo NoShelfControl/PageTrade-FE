@@ -1,3 +1,21 @@
 .name {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
+.bigDiv {
+  position: relative;
+}
+
+.bigDiv:hover .deleteButton {
+  display: block
+}
+
+.deleteButton {
+  display: none;
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  font-size: 25px;
+}

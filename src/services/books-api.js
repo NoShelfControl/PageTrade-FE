@@ -1,4 +1,4 @@
-import { get, post, put } from './request';
+import { del, get, post, put } from './request';
 
 /* eslint-disable max-len */
 export const getBooks = search => {
@@ -7,8 +7,8 @@ export const getBooks = search => {
     .then(json => json.items.map(book => ({
       id: book.id,
       title: book.volumeInfo.title,
-      author: book.volumeInfo.authors[0],
-      image: book.volumeInfo.imageLinks.thumbnail,
+      author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author',
+      image: book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : 'No Image',
       isTradeable: false
     })));
 };
@@ -38,5 +38,10 @@ export const getUserBooks = () => {
 
 export const updateTradeable = (book) => {
   return put('/api/v1/books', book)
+    .then(res => console.log(res));
+};
+
+export const deleteBook = (id) => {
+  return del(`/api/v1/books/${id}`)
     .then(res => console.log(res));
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 import { getVerify, postLogin, postSignup } from '../../../services/auth';
@@ -43,5 +44,9 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+AuthProvider.propTypes = {
+  children: PropTypes.any
+} ;
 
 export default AuthProvider;
