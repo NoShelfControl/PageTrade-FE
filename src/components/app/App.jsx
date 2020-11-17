@@ -7,7 +7,7 @@ import AuthProvider from '../auth/provider/AuthProvider';
 import Login from '../auth/login/Login';
 import PrivateRoute from '../auth/private/PrivateRoute';
 import Signup from '../auth/signup/Signup';
-import Dashboard from '../dashboard/Dashboard';
+import Profile from '../profile/Profile';
 import Home from '../home/Home';
 import Library from './Library/Library';
 
@@ -20,7 +20,7 @@ export default function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/library" component={Library} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/about" component={About} />
+        {/* <Route exact path="/about" component={About} /> */}
       </Switch>
     </AuthProvider>
   );
