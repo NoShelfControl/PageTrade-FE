@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$color1: #fcfdafff;
+$color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
+$color7: #b4c4ae;
+$color8: #8898AA;
+
+main {
+  border: solid 10px $color2;
+  border-radius: 5px;
+  background-image: url('../../../assets//gridbackground.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.authcontainer {
+  background-color: $color6;
+  display: grid;
+  height: 97vh;
+  width: 97%;
+  grid-template-areas: 
+    'logo middle right'
+    'left middle right' 
+    'feed feed feed';
+
+  #logo {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 300px;
+    }
+  
+  #introtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: $color8;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    color: white;
+    }
+  
+  #signupgraphic {
+    max-width: 350px;
+    height: auto;
+    margin: 10px;
+    }
+
+  #signupform {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+  input {
+    border: solid 1px $color2;
+    font-size: 20px;
+    margin: 3px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 10px;
+    border: solid 4px $color7;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 20px;
+  }
+}
+}
+
+
+
