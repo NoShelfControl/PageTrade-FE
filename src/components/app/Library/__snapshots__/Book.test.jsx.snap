@@ -1,8 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`book component renders Article 1`] = `
+exports[`book component renders books 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="bigDiv"
+  >
+    <div
+      class="deleteButton"
+    >
+      X
+    </div>
     <img
       alt="harry potter"
       src="harry.jpg"
