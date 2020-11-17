@@ -15,7 +15,7 @@ export const getBooks = search => {
 };
 
 export const postUserBook = (book) => {
-  return post('/api/v1/books', { 
+  return post('/api/v1/books', {
     title: book.title,
     author: book.author,
     googleId: book.id,
@@ -39,8 +39,8 @@ export const getUserBooks = () => {
     })));
 };
 
-export const updateTradeable = (id, book) => {
-  return put(`/api/v1/books/${id}`, book)
+export const updateTradeable = (book, ownerId) => {
+  return put(`/api/v1/books/${ownerId}`, book)
     .then(res => console.log(res));
 };
 

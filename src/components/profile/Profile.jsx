@@ -7,7 +7,8 @@ import styles from './Profile.css';
 export default function Profile() {
   const { loading, userBooks } = ProfileHook();
 
-  const filteredBooks = userBooks.filter(book => book.isTradeable == true);
+  const booksToTrade = userBooks.filter(book => book.isTradeable === true);
+  const wishListBooks = userBooks.filter(book => book.isWatched === true)
 
   return (
     <div>
@@ -24,13 +25,20 @@ export default function Profile() {
       <section>
         <div>Trade</div>
         <ul>
-          {filteredBooks.map(book => (
+          {booksToTrade.map(book => (
             <li key={book.id}>
               <img src={book.image} alt={book.title} />
             </li>
           ))}
         </ul>
         <div>Wish List</div>
+        <ul>
+          {wishListBooks.map(book => (
+            <li key={book.id}>
+              <img src={book.img} alt={book.title} />
+            </li>
+          ))}
+        </ul>
         <div>Feed</div>
       </section>
     </div >
