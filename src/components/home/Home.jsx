@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.css';
-import Sidebar from '../sidebar/Sidebar';
 import { getUserBooks } from '../../services/books-api';
 
 export default function Home() {
@@ -9,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     getUserBooks()
-      .then(books => setBooks(books))
+      .then(books => setBooks(books));
   }, []);
 
   const booksElements = books.map(book => (
@@ -43,6 +42,6 @@ export default function Home() {
         </main>
       </section>
     </div>
-  )
+  );
 }
 
