@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { getBooks, getUserBooks } from '../../../services/books-api';
+import { deleteBook, getBooks, getUserBooks, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -24,7 +24,8 @@ export default class Library extends Component {
   }
 
   componentDidMount = async() => {
-    const userBooks = await getUserBooks(this.props.match.params.id);
+    const userBooks = await getUserBooks();
+    console.log(userBooks);
     this.setState({ items: userBooks });
   }
 
@@ -96,22 +97,38 @@ export default class Library extends Component {
       }
     };
 
-    addToList = (book) => {
+    addToList = async(book) => {
       const items = this.state.items;
       if(book === items.find(x => x === book) || this.state.selected.find(x => x === book) === book) {
         alert('REPEAT BOOK');
       }
-      else {      
-        items.push(book);
-        this.setState({ items });
+      else {     
+        await postUserBook(book); 
+        const newBooks = await getUserBooks();
+        this.setState({ items: newBooks });
+        console.log(book);
         this.handleCloseModal();
+        
       }
     };
 
-    alertItem = (draggableId) => {
-      const selectedItem = this.state.selected.find(x => x.id === draggableId);
-      selectedItem.isForTrade = true;
+    alertItem = async(draggableId) => {
+      // Looks for matching ID of item in selected list
+      let selectedItem = this.state.selected.find(x => x.id === draggableId);
+      // If undefined, searches in items list
+      !selectedItem ? selectedItem = this.state.items.find(x => x.id === draggableId) : null;
+      // Switches isTradeable on drag end
+      selectedItem.isTradeable ? selectedItem.isTradeable = false : selectedItem.isTradeable = true;
+      await updateTradeable({ ...selectedItem });
       this.setState({ selectedItem });
+    }
+
+    deleteItem = async(index) => {
+      console.log(index);
+      const newList = this.state.items;
+      const removedElement = newList.splice(index, 1);
+      await deleteBook(removedElement[0].googleId);
+      this.setState({ items: newList });
     }
 
     render() {
@@ -119,10 +136,11 @@ export default class Library extends Component {
         <>
           <button className={styles.addButton} onClick={this.handleOpenModal}>ADD</button>
           <div className={styles.container}>
-            <ReactModal 
+            <ReactModal
               styles={styles.modal}
               isOpen={this.state.showModal}
               contentLabel="SearchBox"
+              ariaHideApp={false}
             >
               <form onSubmit={this.handleSearch}>
                 <input onChange={this.handleSearchChange} />
@@ -157,6 +175,7 @@ export default class Library extends Component {
                               name={item.title}
                               innerRef={provided.innerRef}
                               provided={provided}
+                              handleDelete={() => this.deleteItem(index)}
                               style={getItemStyle(
                                 snapshot.isDragging,
                                 provided.draggableProps.style
@@ -173,7 +192,6 @@ export default class Library extends Component {
               <div className={styles.middleDiv}>
                 Drag a book to offer for trade
                 <br />
-                <img className={styles.arrow} src="src\assets\right-arrow.png" alt="right arrow" />
               </div>
               <Droppable droppableId="droppable2">
                 {(provided, snapshot) => (
@@ -190,6 +208,7 @@ export default class Library extends Component {
                           <Book
                             src={item.image}
                             name={item.title}
+                            handleDelete={() => this.deleteItem(index)}
                             innerRef={provided.innerRef}
                             provided={provided}
                             style={getItemStyle(
