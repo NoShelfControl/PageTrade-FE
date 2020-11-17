@@ -2,7 +2,14 @@
 
 exports[`book component renders Article 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    class="bigDiv"
+  >
+    <div
+      class="deleteButton"
+    >
+      X
+    </div>
     <img
       alt="harry potter"
       src="harry.jpg"
