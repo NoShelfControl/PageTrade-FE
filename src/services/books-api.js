@@ -8,8 +8,9 @@ export const getBooks = search => {
       id: book.id,
       title: book.volumeInfo.title,
       author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author',
-      image: book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : 'No Image',
-      isTradeable: false
+      image: book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '',
+      isTradeable: false,
+      isWatched: false
     })));
 };
 
@@ -19,7 +20,8 @@ export const postUserBook = (book) => {
     author: book.author,
     googleId: book.id,
     image: book.image,
-    isTradeable: book.isTradeable
+    isTradeable: book.isTradeable,
+    isWatched: book.isWatched
   });
 };
 
@@ -32,6 +34,7 @@ export const getUserBooks = () => {
       googleId: book.googleId,
       image: book.image,
       isTradeable: book.isTradeable,
+      isWatched: book.isWatched,
       ownerId: book.ownerId
     })));
 };
