@@ -1,0 +1,8 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 40px;
+  background-color: #82A3A1;
+  border-radius: 5px;
+}
