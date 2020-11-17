@@ -1,4 +1,7 @@
 import React from 'react';
+import ProfileForm from './ProfileForm';
+import { Link } from 'react-router-dom';
+import styles from './Profile.css';
 
 export default function Profile() {
   return (
@@ -6,15 +9,18 @@ export default function Profile() {
       <header>
         <Link to="/">Home</Link >
         <Link to="/library">Library</Link >
-        <Link to="/dashboard">Profile</Link >
+        <Link to="/dashboard">Dashboard</Link >
         <Link to="/about">About</Link >
       </header>
 
-      <main className={styles.Main}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </main>
-    </div>
+      <ProfileForm />
+      <button>Request a Book</button>
+
+      <section>
+        <div>Trade</div>
+        <div>Wish List</div>
+        <div>Feed</div>
+      </section>
+    </div >
   )
 }
