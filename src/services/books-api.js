@@ -15,7 +15,7 @@ export const getBooks = search => {
 };
 
 export const postUserBook = (book) => {
-  return post('/api/v1/books', { 
+  return post('/api/v1/books', {
     title: book.title,
     author: book.author,
     googleId: book.id,
