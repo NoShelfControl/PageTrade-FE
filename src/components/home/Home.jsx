@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { getUserBooks } from '../../services/books-api';
 import styles from './Home.css';
 import logo from '../../assets/logo.png';
+import AuthProvider from '../auth/provider/AuthProvider';
+import { useCurrentUser } from '../../context/AuthContext';
 // import Sidebar from '../sidebar/Sidebar';
 
 export default function Home() {
@@ -26,18 +28,31 @@ export default function Home() {
     </ul>
   ));
 
+  const watchListElements = books.map(book => (
+    <ul key={books.id}>
+      {book.isWatched === true ?
+        <li>
+          <img src={book.image} alt={book.title} />
+        </li>
+        : null
+      }
+    </ul>
+  ));
+
+  const user = useCurrentUser();
+
   return (
     <div className={styles.Home}>
       <header>
         <img id={styles.logo} src={logo} />
         <Link to="/" className={styles.Link}>Home</Link >
         <Link to="/library" className={styles.Link}>Library</Link >
-        <Link to="/profile-url-here" className={styles.Link}>Profile</Link >
+        <Link to={`/profile/${user.id}`} className={styles.Link}>Profile</Link >
       </header>
       <main>
         <section className={styles.BookSection}>
           <div>Trade {booksElements}</div>
-          <div>Wish List</div>
+          <div>Wish List {watchListElements}</div>
         </section>
         <div className={styles.feed}>Feed</div>
       </main>

@@ -8,8 +8,8 @@ export const ProfileHook = () => {
   useEffect(() => {
     getUserBooks()
       .then(books => setUserBooks(books))
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false));
   }, []);
 
-  return { loading, userBooks }
-}
+  return { loading, userBooks };
+};

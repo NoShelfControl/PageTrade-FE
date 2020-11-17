@@ -35,7 +35,7 @@ export default function Profile() {
         <ul>
           {wishListBooks.map(book => (
             <li key={book.id}>
-              <img src={book.img} alt={book.title} />
+              <img src={book.image} alt={book.title} />
             </li>
           ))}
         </ul>
