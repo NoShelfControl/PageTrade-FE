@@ -8,17 +8,6 @@ $color6: #f4f6f6;
 $color7: #b4c4ae;
 $color8: #8898AA;
 
-main {
-  border: solid 10px $color2;
-  border-radius: 5px;
-  background-image: url('../../../assets//gridbackground.png');
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-}
-
 .authcontainer {
   background-color: $color6;
   display: grid;
@@ -28,14 +17,21 @@ main {
     'logo middle right'
     'left middle right' 
     'feed feed feed';
-
+    
   #logo {
     margin-left: 50px;
     margin-top: 50px;
     width: 300px;
-    }
-  
-  #introtext {
+  }
+}
+
+#logingraphic {
+  max-width: 350px;
+  height: auto;
+  margin: 10px;
+  }
+
+#signupform {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,24 +45,12 @@ main {
     letter-spacing: 1px;
     word-spacing: 1.5px;
     color: white;
-    }
-  
-  #signupgraphic {
-    max-width: 350px;
-    height: auto;
-    margin: 10px;
-    }
-
-  #signupform {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
 
   input {
     border: solid 1px $color2;
     font-size: 20px;
     margin: 3px;
-  }
+}
 
   button {
     cursor: pointer;
@@ -77,7 +61,3 @@ main {
     font-size: 20px;
   }
 }
-}
-
-
-
