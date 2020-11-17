@@ -13,20 +13,19 @@ export default function Home() {
   }, []);
 
   const booksElements = books.map(book => (
-    <ul>
+    <ul key={books.id}>
       {book.isTradeable === true ?
-        <li key={books.id}>
+        <li>
           <img src={book.image} alt={book.title} />
         </li>
         : null
       }
     </ul>
-  ))
+  ));
 
   return (
     <div className={styles.Home} id="outer-container">
       <section className={styles.SideNavBar} id={styles.PageWrap}>
-        {/* <Sidebar pageWrapId={'PageWrap'} outerContainerId={'outer-container'} /> */}
         <header>
           <Link to="/">Home</Link >
           <Link to="/library">Library</Link >
