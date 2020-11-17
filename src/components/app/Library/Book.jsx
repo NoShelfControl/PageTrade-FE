@@ -26,7 +26,7 @@ Book.propTypes = {
   innerRef: PropTypes.any,
   src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  handleDelete: PropTypes.func.isRequired
+  handleDelete: PropTypes.func
 };
 
 export default Book;
