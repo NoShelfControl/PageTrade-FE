@@ -39,8 +39,8 @@ export const getUserBooks = () => {
     })));
 };
 
-export const updateTradeable = (book) => {
-  return put('/api/v1/books', book)
+export const updateTradeable = (id, book) => {
+  return put(`/api/v1/books/${id}`, book)
     .then(res => console.log(res));
 };
 

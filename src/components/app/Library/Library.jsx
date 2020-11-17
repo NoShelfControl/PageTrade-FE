@@ -153,8 +153,9 @@ export default class Library extends Component {
           selectedItem.isWatched = true;
         }}
       // PUTs after setting state
-      this.setState({ ...selectedItem }, () => {
-        updateTradeable({ ...selectedItem });
+      console.log(selectedItem);
+      this.setState({ selectedItem }, () => {
+        updateTradeable(selectedItem.id, { ...selectedItem });
       });
     }
 
