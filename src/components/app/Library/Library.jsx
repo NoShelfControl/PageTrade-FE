@@ -155,7 +155,7 @@ export default class Library extends Component {
       // PUTs after setting state
       console.log(selectedItem);
       this.setState({ selectedItem }, () => {
-        updateTradeable(selectedItem.ownerId, { ...selectedItem });
+        updateTradeable({ ...selectedItem }, selectedItem.id);
       });
     }
 
