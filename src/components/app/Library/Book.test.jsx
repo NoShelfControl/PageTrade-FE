@@ -4,7 +4,7 @@ import Book from './Book';
 
 describe('book component', () => {
   afterEach(() => cleanup());
-  it('renders Article', () => {
+  it('renders books', () => {
     const { asFragment } = render(<Book
       name="harry potter"
       author="evil woman"
