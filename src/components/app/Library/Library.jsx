@@ -24,11 +24,11 @@ export default class Library extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  componentDidMount = async () => {
+  componentDidMount = async() => {
     this.fetchAndSort();
   }
 
-  fetchAndSort = async () => {
+  fetchAndSort = async() => {
     const userBooks = await getUserBooks();
     const notForTrade = userBooks.filter(x => x.isTradeable == false && x.isWatched == false);
     const forTrade = userBooks.filter(x => x.isTradeable == true);
@@ -48,7 +48,7 @@ export default class Library extends Component {
     this.setState({ search: e.target.value });
   }
 
-  handleSearch = async (e) => {
+  handleSearch = async(e) => {
     e.preventDefault();
     const results = await getBooks(this.state.search);
     this.setState({ results });
@@ -67,16 +67,16 @@ export default class Library extends Component {
 
   getList = id => this.state[this.id2List[id]];
 
-  onDragEnd = async (result) => {
+  onDragEnd = async(result) => {
     const { source, destination } = result;
     const draggableId = result.draggableId;
 
     // dropped outside the list
-    if (!destination) {
+    if(!destination) {
       return;
     }
 
-    if (source.droppableId === destination.droppableId) {
+    if(source.droppableId === destination.droppableId) {
       const items = reorder(
         this.getList(source.droppableId),
         source.index,
@@ -85,10 +85,10 @@ export default class Library extends Component {
 
       let state = { items };
 
-      if (source.droppableId === 'droppable2') {
+      if(source.droppableId === 'droppable2') {
         state = { selected: items };
       }
-      if (source.droppableId === 'droppable3') {
+      if(source.droppableId === 'droppable3') {
         state = { watchList: items };
       }
       this.setState(state, () => this.alertItem(draggableId));
@@ -99,19 +99,19 @@ export default class Library extends Component {
         source,
         destination
       );
-      if (!result.droppable) {
+      if(!result.droppable) {
         this.setState({
           selected: result.droppable2,
           watchList: result.droppable3
         }, () => this.alertItem(draggableId));
       }
-      if (!result.droppable2) {
+      if(!result.droppable2) {
         this.setState({
           items: result.droppable,
           watchList: result.droppable3
         }, () => this.alertItem(draggableId));
       }
-      if (!result.droppable3) {
+      if(!result.droppable3) {
         this.setState({
           items: result.droppable,
           selected: result.droppable2,
@@ -121,9 +121,9 @@ export default class Library extends Component {
   };
 
   // Adds book from google API to items list
-  addToList = async (book) => {
+  addToList = async(book) => {
     const items = this.state.items;
-    if (book === items.find((x => x === book) || this.state.selected.find(x => x === book) || this.state.watchList.find(x => x === book))) {
+    if(book === items.find((x => x === book) || this.state.selected.find(x => x === book) || this.state.watchList.find(x => x === book))) {
       alert('REPEAT BOOK');
     }
     else {
@@ -133,51 +133,50 @@ export default class Library extends Component {
     }
   };
 
-  alertItem = async (draggableId) => {
+  alertItem = async(draggableId) => {
     // Looks for matching ID of item in selected list
     let selectedItem = '';
     // Checks which list is undefined, sets other two lists
     selectedItem = this.state.items.find(x => x.id === draggableId);
-    if (selectedItem) {
+    if(selectedItem) {
       selectedItem.isTradeable = false;
       selectedItem.isWatched = false;
     }
-    if (!selectedItem) {
+    if(!selectedItem) {
       selectedItem = this.state.selected.find(x => x.id === draggableId);
-      if (selectedItem) {
+      if(selectedItem) {
         selectedItem.isTradeable = true;
         selectedItem.isWatched = false;
       }
     }
-    if (!selectedItem) {
+    if(!selectedItem) {
       selectedItem = this.state.watchList.find(x => x.id === draggableId);
-      if (selectedItem) {
+      if(selectedItem) {
         selectedItem.isTradeable = false;
         selectedItem.isWatched = true;
       }
     }
     // PUTs after setting state
-    console.log(selectedItem);
     this.setState({ selectedItem }, () => {
       updateTradeable({ ...selectedItem }, selectedItem.id);
     });
   }
 
-  deleteItemsItem = async (index) => {
+  deleteItemsItem = async(index) => {
     const newList = this.state.items;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
     this.setState({ items: newList });
   }
 
-  deleteSelectedItem = async (index) => {
+  deleteSelectedItem = async(index) => {
     const newList = this.state.selected;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
     this.setState({ selected: newList });
   }
 
-  deleteWatchListItem = async (index) => {
+  deleteWatchListItem = async(index) => {
     const newList = this.state.watchList;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
@@ -244,7 +243,7 @@ export default class Library extends Component {
             </Droppable>
             <div className={styles.middleDiv}>
               Drag a book to offer for trade
-                <br />
+              <br />
             </div>
             <Droppable droppableId="droppable2">
               {(provided, snapshot) => (

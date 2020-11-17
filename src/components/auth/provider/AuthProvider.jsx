@@ -14,14 +14,14 @@ const AuthProvider = ({ children }) => {
 
     postSignup(email, password)
       .then(user => setCurrentUser(user))
-      .then(() => history.push('/dashboard'))
+      .then(() => history.push('/'))
       .finally(() => setLoading(false));
   };
 
   const login = (email, password) => {
     postLogin(email, password)
       .then(user => setCurrentUser(user))
-      .then(() => history.push('/dashboard'))
+      .then(() => history.push('/'))
       .finally(() => setLoading(false));
   };
 
