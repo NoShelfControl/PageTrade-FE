@@ -13,13 +13,6 @@
     padding: 40px;
     background-color: #82A3A1;
     border-radius: 5px;
-    button {
-      border-radius: 5px;
-    }
-    button:hover{
-      cursor: pointer;
-      background-color: #F28F3B ;
-    }
   }
   .Main{
     margin: 20px;
@@ -29,6 +22,10 @@
       grid-template-columns: 50% 50%;
       min-height: 200px;
       justify-content: center;
+      li {
+        list-style: none;
+        
+      }
     }
     div{
     text-align: center;
