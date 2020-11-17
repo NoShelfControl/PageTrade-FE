@@ -1,8 +1,11 @@
 .Home{
   margin: 0px;
   padding: 0px;
-  .SideNavBar {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  #PageWrap {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
   header {
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +19,6 @@
     button:hover{
       cursor: pointer;
       background-color: #F28F3B ;
-    }
     }
   }
   .Main{
@@ -34,9 +36,5 @@
     padding: 20px;
     border: solid;
     }
-  }
-  footer {
-    text-align: center;
-    text-decoration: none;
   }
 }
