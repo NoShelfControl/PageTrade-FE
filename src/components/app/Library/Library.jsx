@@ -127,7 +127,6 @@ export default class Library extends Component {
       alert('REPEAT BOOK');
     }
     else {
-      console.log(book);
       await postUserBook(book);
       await postAction({ actionType: 'ADD', book: book.title });
       await this.fetchAndSort();

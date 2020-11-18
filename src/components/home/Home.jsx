@@ -2,25 +2,25 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getUserBooks } from '../../services/books-api';
+import { getSingleUserBooks } from '../../services/books-api';
 import styles from './Home.css';
 import logo from '../../assets/logo.png';
 import { useCurrentUser } from '../../context/AuthContext';
 // import Sidebar from '../sidebar/Sidebar';
 
 export default function Home() {
-  const [books, setBooks] = useState([]);
+  const [books, setSingleBooks] = useState([]);
 
   useEffect(() => {
-    getUserBooks()
-      .then(books => setBooks(books));
+    getSingleUserBooks()
+      .then(books => setSingleBooks(books));
   }, []);
 
   const booksElements = books.map(book => (
     <ul key={books.id}>
       {book.isTradeable === true ?
-        <li>
-          <img src={book.image} alt={book.title} />
+        <li key={book.id}>
+          <img key={book.id} src={book.image} alt={book.title} />
         </li>
         : null
       }
@@ -30,8 +30,8 @@ export default function Home() {
   const watchListElements = books.map(book => (
     <ul key={books.id}>
       {book.isWatched === true ?
-        <li>
-          <img src={book.image} alt={book.title} />
+        <li key={book.id}>
+          <img key={book.id} src={book.image} alt={book.title} />
         </li>
         : null
       }
