@@ -48,3 +48,10 @@ export const deleteBook = (id) => {
   return del(`/api/v1/books/${id}`)
     .then(res => console.log(res));
 };
+
+export const postAction = (action) => {
+  return post('/api/v1/feed', {
+    ...action
+  })
+    .then(res => console.log(res));
+};
