@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProfileForm from './ProfileForm';
 import { Link } from 'react-router-dom';
 import { ProfileHook, useUserActions } from '../../hooks/ProfileHook';
@@ -13,7 +13,7 @@ export default function Profile() {
   const user = useCurrentUser();
   const { userId } = useParams(); 
   const { loading, userBooks } = ProfileHook(userId);
-  const { loadingActions, actions } = useUserActions();
+  const { loadingActions, actions } = useUserActions(userId);
   const sortedActions = feedSorter(userId, actions);
 
 
@@ -29,6 +29,7 @@ export default function Profile() {
 
   if(loading) return <h1>Loading...</h1>;
   if(loadingActions) return <h1>Loading...</h1>;
+  if(!user) return <h1>Loading...</h1>;
 
   return (
     <div>

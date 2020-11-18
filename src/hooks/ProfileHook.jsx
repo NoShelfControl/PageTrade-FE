@@ -30,12 +30,12 @@ export const useSingleUserBooks = () => {
   return { loading, singleUserBooks };
 };
 
-export const useUserActions = () => {
+export const useUserActions = (id) => {
   const [loadingActions, setLoadingActions] = useState(true);
   const [actions, setActions] = useState([]);
 
   useEffect(() => {
-    getUserActions()
+    getUserActions(id)
       .then(userActions => setActions(userActions))
       .then(() => setLoadingActions(false));
   }, []);

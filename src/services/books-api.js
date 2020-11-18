@@ -71,8 +71,8 @@ export const postAction = (action) => {
     .then(res => console.log(res));
 };
 
-export const getUserActions = () => {
-  return get('/api/v1/feed')
+export const getUserActions = (id) => {
+  return get(`/api/v1/feed/${id}`)
     .then(books => books.map(book => ({
       id: book.id,
       actionType: book.actionType,

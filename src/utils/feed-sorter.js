@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 export const feedSorter = (id, array) => {
   console.log(array, 'unsorted');
-  let newArray = array;
-  const sortedFeed = newArray.reverse();
+  const sortedFeed = array.slice().reverse();
   console.log(sortedFeed, 'reversed');
   const slicedFeed = sortedFeed.slice(0, 10);
   const actionsFeed = [];
