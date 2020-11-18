@@ -1,11 +1,11 @@
 import React from 'react';
-import { bool } from 'prop-types';
 import styles from './Menu.css';
 
 const Menu = () => {
+
   return (
     <>
-      <span open={open => open ? 'translateX(0)' : 'translateX(-100%)'}>
+      <div>
         < a href="/">
           Home
       </a>
@@ -15,13 +15,7 @@ const Menu = () => {
         <a href="/profile">
           Profile
       </a>
-        <a href="/requests">
-          Requests
-      </a>
-        <a href="/about">
-          About
-      </a>
-      </span>
+      </div>
     </>
   );
 };

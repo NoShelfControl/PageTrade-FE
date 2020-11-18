@@ -1,0 +1,12 @@
+
+.Sidebar {
+  .menuIcon {
+    height: 50px;
+    padding: 10px;
+  }
+  .menuIcon:hover {
+   cursor: pointer;
+   background-color: #C8553D;
+   border-radius: 3px;
+  }
+}
