@@ -25,8 +25,8 @@ export const postUserBook = (book) => {
   });
 };
 
-export const getUserBooks = () => {
-  return get('/api/v1/books')
+export const getUserBooks = (id) => {
+  return get(`/api/v1/books/${id}`)
     .then(books => books.map(book => ({
       id: book.id,
       title: book.title,
@@ -38,6 +38,21 @@ export const getUserBooks = () => {
       ownerId: book.ownerId
     })));
 };
+
+export const getSingleUserBooks = () => {
+  return get('/api/v1/books/')
+    .then(books => books.map(book => ({
+      id: book.id,
+      title: book.title,
+      author: book.author,
+      googleId: book.googleId,
+      image: book.image,
+      isTradeable: book.isTradeable,
+      isWatched: book.isWatched,
+      ownerId: book.ownerId
+    })));
+};
+
 
 export const updateTradeable = (book, ownerId) => {
   return put(`/api/v1/books/${ownerId}`, book)

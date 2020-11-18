@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { deleteBook, getBooks, getUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
+import { deleteBook, getBooks, getSingleUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -29,7 +29,7 @@ export default class Library extends Component {
   }
 
   fetchAndSort = async() => {
-    const userBooks = await getUserBooks();
+    const userBooks = await getSingleUserBooks();
     const notForTrade = userBooks.filter(x => x.isTradeable == false && x.isWatched == false);
     const forTrade = userBooks.filter(x => x.isTradeable == true);
     const watched = userBooks.filter(x => x.isWatched == true);

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getUserBooks } from '../services/books-api';
 
-export const ProfileHook = () => {
+export const ProfileHook = (id) => {
   const [loading, setLoading] = useState(true);
   const [userBooks, setUserBooks] = useState([]);
 
   useEffect(() => {
-    getUserBooks()
+    getUserBooks(id)
       .then(books => setUserBooks(books))
       .finally(() => setLoading(false));
   }, []);

@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProfileForm from './ProfileForm';
 import { Link } from 'react-router-dom';
 import { ProfileHook } from '../../hooks/ProfileHook';
 import styles from './Profile.css';
+import { useCurrentUser } from '../../context/AuthContext';
+import { useParams } from 'react-router-dom';
+
 
 export default function Profile() {
-  const { loading, userBooks } = ProfileHook();
+  const { userId } = useParams();  
+  const { loading, userBooks } = ProfileHook(userId);
 
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
   const wishListBooks = userBooks.filter(book => book.isWatched === true);
 
-  !loading ? <h1>Loading...</h1> : null;
+  const user = useCurrentUser();
+
+  if(loading) return <h1>Loading...</h1>;
 
   return (
     <div>
@@ -20,8 +26,10 @@ export default function Profile() {
         <Link to="/dashboard">Dashboard</Link >
         <Link to="/about">About</Link >
       </header>
-
-      <ProfileForm />
+      { user.id === userId ?
+        <ProfileForm />
+        : null
+      }
       <button>Request a Book</button>
 
       <section>
