@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Home.css';
 import Sidebar from '../sidebar/Sidebar';
 import { getUserBooks } from '../../services/books-api';
+import Menu from '../sidebar/Menu';
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -26,7 +27,7 @@ export default function Home() {
   return (
     <div className={styles.Home} id="outer-container">
       <section className={styles.SideNavBar} id={styles.PageWrap}>
-        {/* <Sidebar pageWrapId={'PageWrap'} outerContainerId={'outer-container'} /> */}
+        <Sidebar />
         <header>
           <Link to="/">Home</Link >
           <Link to="/library">Library</Link >
