@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Library.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { deleteBook, getBooks, getUserBooks, postUserBook, updateTradeable } from '../../../services/books-api';
+import { deleteBook, getBooks, getSingleUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
@@ -29,7 +29,7 @@ export default class Library extends Component {
   }
 
   fetchAndSort = async() => {
-    const userBooks = await getUserBooks();
+    const userBooks = await getSingleUserBooks();
     const notForTrade = userBooks.filter(x => x.isTradeable == false && x.isWatched == false);
     const forTrade = userBooks.filter(x => x.isTradeable == true);
     const watched = userBooks.filter(x => x.isWatched == true);
@@ -128,8 +128,10 @@ export default class Library extends Component {
     }
     else {
       await postUserBook(book);
+      await postAction({ actionType: 'ADD', book: book.title });
       await this.fetchAndSort();
       this.handleCloseModal();
+      
     }
   };
 
@@ -147,6 +149,7 @@ export default class Library extends Component {
       if(selectedItem) {
         selectedItem.isTradeable = true;
         selectedItem.isWatched = false;
+        await postAction({ actionType: 'TRADE', book: selectedItem.title });
       }
     }
     if(!selectedItem) {
@@ -154,6 +157,7 @@ export default class Library extends Component {
       if(selectedItem) {
         selectedItem.isTradeable = false;
         selectedItem.isWatched = true;
+        await postAction({ actionType: 'WATCH', book: selectedItem.title });
       }
     }
     // PUTs after setting state
