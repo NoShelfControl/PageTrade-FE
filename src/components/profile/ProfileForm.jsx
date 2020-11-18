@@ -11,15 +11,15 @@ export default class Profile extends Component {
   };
 
   handleNameChange = (e) => {
-    this.setState({ name: e.target.value })
+    this.setState({ name: e.target.value });
   }
 
   handleBioChange = (e) => {
-    this.setState({ bio: e.target.value })
+    this.setState({ bio: e.target.value });
   }
 
   handleCurrentReadChange = (e) => {
-    this.setState({ currentRead: e.target.value })
+    this.setState({ currentRead: e.target.value });
   }
 
   handleSubmit = e => {
