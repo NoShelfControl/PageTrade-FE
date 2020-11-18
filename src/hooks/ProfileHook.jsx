@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getSingleUserBooks, getUserBooks } from '../services/books-api';
+import { getSingleUserBooks, 
+  getUserBooks, 
+  getUserActions } 
+  from '../services/books-api';
 
 export const ProfileHook = (id) => {
   const [loading, setLoading] = useState(true);
@@ -25,4 +28,17 @@ export const useSingleUserBooks = () => {
   }, []);
 
   return { loading, singleUserBooks };
+};
+
+export const useUserActions = () => {
+  const [loadingActions, setLoadingActions] = useState(true);
+  const [actions, setActions] = useState([]);
+
+  useEffect(() => {
+    getUserActions()
+      .then(userActions => setActions(userActions))
+      .then(() => setLoadingActions(false));
+  }, []);
+
+  return { loadingActions, actions };
 };
