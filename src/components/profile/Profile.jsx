@@ -8,7 +8,9 @@ export default function Profile() {
   const { loading, userBooks } = ProfileHook();
 
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
-  const wishListBooks = userBooks.filter(book => book.isWatched === true)
+  const wishListBooks = userBooks.filter(book => book.isWatched === true);
+
+  !loading ? <h1>Loading...</h1> : null;
 
   return (
     <div>
@@ -42,5 +44,5 @@ export default function Profile() {
         <div>Feed</div>
       </section>
     </div >
-  )
+  );
 }

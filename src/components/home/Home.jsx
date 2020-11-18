@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { getUserBooks } from '../../services/books-api';
 import styles from './Home.css';
 import logo from '../../assets/logo.png';
-import AuthProvider from '../auth/provider/AuthProvider';
 import { useCurrentUser } from '../../context/AuthContext';
 // import Sidebar from '../sidebar/Sidebar';
 
