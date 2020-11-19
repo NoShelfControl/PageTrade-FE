@@ -5,16 +5,23 @@ import { useSignup } from '../../../context/AuthContext';
 import styles from './Signup.css';
 import logo from '../../../assets/logo.png';
 import signupgraphic from '../../../assets/signupgraphic.png';
+import { useGlobalActions } from '../../../hooks/ProfileHook';
+import Loading from '../../loading/Loading';
+import { globalFeedSorter } from '../../../utils/feed-sorter';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { globalActions, loadingActions } = useGlobalActions();
   const signup = useSignup();
+  const sortedActions = globalFeedSorter(globalActions);
 
   const handleSubmit = event => {
     event.preventDefault();
     signup(email, password);
   };
+  
+  if(loadingActions) return <Loading />;
 
   return (
     <main>
@@ -39,6 +46,11 @@ const Signup = () => {
             />
             <button>Join Now</button>
           </form>
+          <ul className={styles.feedList}>
+            {sortedActions.map((action, idx) => {
+              return <li key={idx}>{action}</li>;
+            })}
+          </ul>
         </h1>
         <img id={styles.signupgraphic} src={signupgraphic} />
       </section>
