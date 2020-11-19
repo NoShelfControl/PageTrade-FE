@@ -1,14 +1,25 @@
+$color1: #fcfdafff;
 $color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
 $color7: #b4c4ae;
+$color8: #8898AA;
 
-footer {
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.Footer {
+  padding: 50px;
   display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 10px;
-    border-radius: 5px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-radius: 5px;
 
   .Link {
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,3 +36,62 @@ footer {
     color: white;
   }
 }
+
+.About {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 20px;
+  
+  img {
+    height: 150px;
+  }
+  
+  .icon {
+    height: 30px;
+  }
+ 
+  figure {
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 180px;
+    border: solid 1px $color7;
+    padding: 40px 50px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 0 3px 10px $color2;
+
+    img {
+      border: solid 2px $color8;
+      border-radius: 100px;
+    }
+
+    .icon {
+      border: none;
+    }
+
+  }
+  
+  figure:hover {
+    opacity: 100%
+  }
+}
+
+  h1 {
+    background-color: $color5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-items: center;
+    font-weight: 600;
+    font-size: 3em;
+    letter-spacing: 8px;
+    color: $color6;
+    padding-right: 25px;
+  }
+
+
+
+

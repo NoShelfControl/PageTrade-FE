@@ -4,7 +4,7 @@ import styles from './Footer.css';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className={styles.Footer}>
       <Link to="/about" className={styles.Link}>about</Link >
       <Link to="/careers"className={styles.Link}>careers</Link >
       <Link to="/terms" className={styles.Link}>terms of service</Link >
