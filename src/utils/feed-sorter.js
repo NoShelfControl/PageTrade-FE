@@ -36,3 +36,21 @@ export const globalFeedSorter = (array) => {
   });
   return actionsFeed;
 };
+
+export const homeFeedSorter = (array) => {
+  const sortedFeed = array.slice().reverse();
+  const slicedFeed = sortedFeed.slice(0, 10);
+  const actionsFeed = [];
+  slicedFeed.forEach(item => {
+    switch(item.actionType) {
+      case 'TRADE':
+        actionsFeed.push(`User ${item.userId} put ${item.book} up for trade!`);
+        break;
+      case 'ADD':
+        break;
+      case 'WATCH':
+        actionsFeed.push(`User ${item.userId} placed ${item.book} on their watchlist!`);
+    }
+  });
+  return actionsFeed;
+};
