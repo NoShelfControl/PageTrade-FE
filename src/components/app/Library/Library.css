@@ -1,98 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+body {
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+  $min: 100px;
+  $color1: #fcfdafff;
+  $color2: #465362ff;
+  $color3: #82a3a1ff;
+  $color4: #f28f3bff;
+  $color5: #c8553dff;
+  $color6: #f4f6f6;
+  $color7: #b4c4ae;
+  $color8: #8898AA;
+}
 
 #Library {
-  .rightBox {
-    background-color: red;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    right: 0;
-    top: 0;
-    height: 800px;
-    margin-left: 20px;
-    overflow: hidden;
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    align-items: center;
-  }
-
-  .centerBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    right: 0;
-    top: 0;
-    height: 800px;
-    margin-left: 20px;
-    overflow: hidden;
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    margin-right: 20px;
-    align-items: center;
-
-  }
-
-  .leftBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    top: 0;
-    height: 800px;
-    margin-right: 20px;
-    overflow: hidden;
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    align-items: center;
-  }
-
-  .middleDiv {
-
-    height: 100px;
-  }
 
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .addABook {
-    width: 100%;
-  }
-
-  .booksToTrade {
-    vertical-align: middle;
-  }
-
-  .resultList {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-  }
-
-  .resultItem {
-    position: relative;
-    background-color: rgb(100, 25, 25);
-    width: 175px;
-    border-left: 1px rgb(71, 18, 18) solid;
-    border-top: 1px rgb(71, 18, 18) solid;
-    border-bottom: 3px rgb(255, 255, 228) solid;
-    border-right: 5px rgb(255, 255, 228) solid;
-    color: white;
-    margin-top: 10px;
-    padding-bottom: 5px;
-    text-align: center;
-    margin-right: 10px;
+    background-image: url('../../../assets/gridbackground.png');
+    margin: .5%;
+    padding: 4%;
+    border: solid 4px $color8;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 10px;
   }
 
   .addButton {
+    margin: 1%;
+    padding: 10px;
     position: relative;
-    left: 29%
+    color: $color6;
+    background-color: $color2;
+    border: solid 2px $color3;
+    border-radius: 5px;
+    box-shadow: 0 1px 7px $color2;    
+    }
+    
+  .columntext {
+    font-family: 'Lato';
+    font-size: 20px;
+    font-weight: 600;
+    color: $color1;
+    padding: 5px;
+    border: solid 2px $color1;
+    border-radius: 2px;
+    background-color: $color8;
+    width: 150px;
+  }
+  
+  .shelf {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-self: stretch;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+    border: solid 1px $color2;
+    box-shadow: 4px 5px 5px rgb(62, 41, 23);
   }
 
-  .arrow {
-    height: 50%;
-    width: 50%;
-  }
 }
+
+.resultList {
+display: flex;
+flex-wrap: wrap;
+list-style: none;
+}
+
+.resultItem {
+position: relative;
+background-color: rgb(100, 25, 25);
+width: 175px;
+border-left: 1px rgb(71, 18, 18) solid;
+border-top: 1px rgb(71, 18, 18) solid;
+border-bottom: 3px rgb(255, 255, 228) solid;
+border-right: 5px rgb(255, 255, 228) solid;
+color: white;
+margin-top: 10px;
+padding-bottom: 5px;
+text-align: center;
+margin-right: 10px;
+}
+
