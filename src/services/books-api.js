@@ -8,7 +8,7 @@ export const getBooks = search => {
       id: book.id,
       title: book.volumeInfo.title,
       author: book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author',
-      image: book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '',
+      image: book.volumeInfo.imageLinks?.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '',
       isTradeable: false,
       isWatched: false
     })));
