@@ -193,7 +193,7 @@ export default class Library extends Component {
         <button className={styles.addButton} onClick={this.handleOpenModal}>ADD</button>
         <div className={styles.container}>
           <ReactModal
-            styles={styles.modal}
+            className={styles.modal}
             isOpen={this.state.showModal}
             contentLabel="SearchBox"
             ariaHideApp={false}
