@@ -5,9 +5,13 @@ import styles from './Sidebar.css';
 
 function Sidebar() {
 
+  const handleClick = () => {
+    { <img style={{ visibility: visible }} /> }
+  }
+
   return (
     <div className={styles.Sidebar}>
-      <img src={menu_icon} alt="menu icon" className={styles.menuIcon} />
+      <img src={menu_icon} alt="menu icon" className={styles.menuIcon} onClick={handleClick} />
       <div>
         <Menu />
       </div>

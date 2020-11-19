@@ -18,7 +18,7 @@ a {
   letter-spacing: 0.5rem;
   text-decoration: none;
   color: #F28F3B;
-  display: none
+  visibility: hidden;
 }
 
 a:hover {
