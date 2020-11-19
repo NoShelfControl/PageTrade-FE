@@ -10,8 +10,8 @@ const Menu = ({ open }) => {
       <a href="/library">
         Library
         </a>
-      <a href="/about">
-        About
+      <a href="/profile/:userId">
+        Profile
         </a>
     </StyledMenu>
   )

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const StyledMenu = styled.nav`
   display: flex;
   justify-content: space-evenly;
-  background: #82A3A1 ;
-  height: 15vh;
-  width: 100vw;
+  background: #8898AA;
+  height: 15%;
+  width: 100%;
   text-align: center;
   padding: 2rem;
   position: absolute;
@@ -20,6 +20,10 @@ export const StyledMenu = styled.nav`
     width: 100%;
   }
 
+  @media (max-width: 1090px) {
+    height: 10%;
+  }
+
   a {
     font-size: 2rem;
     padding: 2rem 0;
@@ -29,8 +33,8 @@ export const StyledMenu = styled.nav`
     text-decoration: none;
     transition: color 0.3s linear;
     
-    @media (max-width: 576px) {
-      font-size: 1.5rem;
+    @media (max-width: 870px) {
+      font-size: 1rem;
       text-align: center;
     }
 
