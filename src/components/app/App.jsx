@@ -10,6 +10,7 @@ import Signup from '../auth/signup/Signup';
 import Profile from '../profile/Profile';
 import Home from '../home/Home';
 import Library from './Library/Library';
+import About from '../footer/About';
 
 export default function App() {
   return (
@@ -18,9 +19,9 @@ export default function App() {
         <PrivateRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/library" component={Library} />
-        <Route exact path="/profile" component={Profile} />
-        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/library/" component={Library} />
+        <Route exact path="/profile/:userId" component={Profile} />
+        <Route exact path="/about" component={About} />
       </Switch>
     </AuthProvider>
   );
