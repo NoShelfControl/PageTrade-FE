@@ -9,6 +9,7 @@ import Sidebar from '../sidebar/Sidebar';
 import { useGlobalActions } from '../../hooks/ProfileHook';
 import { homeFeedSorter } from '../../utils/feed-sorter';
 import Loading from '../loading/Loading';
+import Footer from '../footer/Footer';
 
 export default function Home() {
   const [books, setSingleBooks] = useState([]);
