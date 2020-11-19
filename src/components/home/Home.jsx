@@ -7,7 +7,6 @@ import styles from './Home.css';
 import logo from '../../assets/logo.png';
 import { useCurrentUser } from '../../context/AuthContext';
 import Sidebar from '../sidebar/Sidebar';
-// import Sidebar from '../sidebar/Sidebar';
 
 export default function Home() {
   const [books, setSingleBooks] = useState([]);
