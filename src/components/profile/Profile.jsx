@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProfileForm from './ProfileForm';
 import { Link } from 'react-router-dom';
 import { ProfileHook, useUserActions } from '../../hooks/ProfileHook';
@@ -17,14 +17,11 @@ export default function Profile() {
   const sortedActions = feedSorter(userId, actions);
 
 
-
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
   const wishListBooks = userBooks.filter(book => book.isWatched === true);
   const collection = userBooks.filter(book => 
     book.isTradeable === false 
     && book.isWatched === false);
-
-
 
 
   if(loading) return <h1>Loading...</h1>;
@@ -33,6 +30,7 @@ export default function Profile() {
 
   return (
     <div>
+      {console.log(user)}
       <header>
         <Link to="/">Home</Link >
         <Link to="/library">Library</Link >
@@ -40,12 +38,12 @@ export default function Profile() {
         <Link to="/about">About</Link >
       </header>
       { user.id === userId ?
-        <ProfileForm />
-        : null
+        <ProfileForm user={user} />
+        : <a href={`mailto:${user.email}`}>Request a Book</a>
       }
-      <button>Request a Book</button>
 
       <section>
+        <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
         <div>Collection</div>
         <ul>
           {collection.map(book => (

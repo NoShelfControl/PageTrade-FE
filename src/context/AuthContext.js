@@ -21,3 +21,8 @@ export const useAuthLoading = () => {
   const { loading } = useContext(AuthContext);
   return loading;
 };
+
+export const useUpdateUser = () => {
+  const { update } = useContext(AuthContext);
+  return update;
+};
