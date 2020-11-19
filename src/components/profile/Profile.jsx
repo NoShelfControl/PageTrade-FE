@@ -17,11 +17,13 @@ export default function Profile() {
   const sortedActions = feedSorter(userId, actions);
 
 
+
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
   const wishListBooks = userBooks.filter(book => book.isWatched === true);
   const collection = userBooks.filter(book => 
     book.isTradeable === false 
     && book.isWatched === false);
+
 
 
   if(loading) return <h1>Loading...</h1>;
@@ -44,6 +46,7 @@ export default function Profile() {
 
       <section>
         <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
+
         <div>Collection</div>
         <ul>
           {collection.map(book => (
