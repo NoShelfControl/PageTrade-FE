@@ -93,5 +93,27 @@ body {
   }
 
 
+.Careers {
+  #thiscontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+  figure {
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    border: solid 1px $color7;
+    padding: 40px 50px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 0 3px 10px $color2;
 
 
+}
+}
