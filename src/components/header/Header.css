@@ -1,0 +1,25 @@
+body {
+  $color1: #fcfdafff;
+$color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
+$color7: #b4c4ae;
+$color8: #8898AA;
+$color9: #cd6018;
+}
+
+#Header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: $color9;
+
+    #logo {
+      width: 8%;
+      margin-right: 5%;
+    }
+  }
+
