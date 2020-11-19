@@ -8,7 +8,7 @@ const PrivateRoute = props => {
   const loading = useAuthLoading();
 
   if(loading) return <h1>Loading...</h1>;
-  if(!currentUser) return <Redirect to="/login" />;
+  if(!currentUser) return <Redirect to="/signup" />;
 
 
   return <Route {...props} />;
