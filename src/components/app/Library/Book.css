@@ -1,13 +1,27 @@
-.name {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+
 
 .bigDiv {
   position: relative;
+  background-color: rgb(100, 25, 25);
+  width: 175px;
+  border-left: 1px rgb(71, 18, 18) solid;
+  border-top: 1px rgb(71, 18, 18) solid;
+  border-bottom: 3px rgb(255, 255, 228) solid;
+  border-right: 5px rgb(255, 255, 228) solid;
+  color: white;
+  margin-top: 10px;
+  padding-bottom: 5px;
 }
 
 .bigDiv:hover .deleteButton {
   display: block
+}
+
+.name {
+  background-color: rgb(71, 18, 18);
+  font-family: 'Playfair Display', serif;
 }
 
 .deleteButton {
@@ -16,6 +30,6 @@
   color: white;
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 0px;
   font-size: 25px;
 }

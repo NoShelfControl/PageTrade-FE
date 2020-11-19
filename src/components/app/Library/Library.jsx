@@ -252,7 +252,7 @@ export default class Library extends Component {
             <Droppable droppableId="droppable2">
               {(provided, snapshot) => (
                 <div
-                  className={styles.rightBox}
+                  className={styles.centerBox}
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}>
                   {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
@@ -280,6 +280,10 @@ export default class Library extends Component {
                 </div>
               )}
             </Droppable>
+            <div className={styles.middleDiv}>
+              Drag a book to add to watchlist
+              <br />
+            </div>
             <Droppable droppableId="droppable3">
               {(provided, snapshot) => (
                 <div
@@ -306,7 +310,7 @@ export default class Library extends Component {
                       )}
                     </Draggable>
                   ))
-                    : <div className={styles.booksToTrade}>Books on watch list</div>}
+                    : <div className={styles.booksToTrade}>Books on watchlist</div>}
                   {provided.placeholder}
                 </div>
               )}
