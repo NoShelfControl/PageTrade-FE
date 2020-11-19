@@ -16,8 +16,9 @@ export const StyledBurger = styled.button`
   z-index: 10;
 
   &:hover {
-    background-color: #82A3A1;
+    background-color: #8898AA;
     border-radius: 2px;
+    opacity: 0.3;
   }
   
   &:focus {
