@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getSingleUserBooks, 
   getUserBooks, 
-  getUserActions } 
+  getUserActions, 
+  getGlobalActions} 
   from '../services/books-api';
 
 export const ProfileHook = (id) => {
@@ -41,4 +42,17 @@ export const useUserActions = (id) => {
   }, []);
 
   return { loadingActions, actions };
+};
+
+export const useGlobalActions = () => {
+  const [loadingActions, setLoadingActions] = useState(true);
+  const [globalActions, setGlobalActions] = useState([]);
+
+  useEffect(() => {
+    getGlobalActions()
+      .then(userActions => setGlobalActions(userActions))
+      .then(() => setLoadingActions(false));
+  }, []);
+
+  return { loadingActions, globalActions };
 };

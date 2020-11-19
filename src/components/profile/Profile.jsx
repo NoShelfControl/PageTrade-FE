@@ -94,7 +94,9 @@ export default function Profile() {
         </div>
         <div className={styles.bio}>
           <div className={styles.sectionHeader}>Bio</div>
-          {user.bio}
+          <div className={styles.bioText}>
+            <p>{user.bio}</p>
+          </div>
         </div>
         <div className={styles.feedSection}>
           <div className={styles.sectionHeader}>Feed</div>
