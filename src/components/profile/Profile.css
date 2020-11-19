@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 header {
   display: flex;
   flex-wrap: wrap;
@@ -5,4 +7,85 @@ header {
   padding: 40px;
   background-color: #82A3A1;
   border-radius: 5px;
+}
+
+.editButton {
+  margin-bottom: 15px;
+  float: right;
+  margin-right: 20px;
+  background-color: rgb(204, 90, 14);
+  color: white;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+.modal {
+  width: 500px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 33%;
+  top: 15%;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+.button {
+  position: absolute;
+  bottom: 10%;
+  right: 10;
+}
+
+.bookLists {
+  border-radius: 5px;
+  background-color: rgb(128, 128, 128);
+  display: flex;
+  align-items: flex-start;
+  justify-items: center;
+  color: #f4f6f6;
+  padding-right: 25px;
+  list-style: none;
+  overflow: auto;
+  width: 50%;
+}
+
+.bookLists li {
+  width: 150px;
+  margin-top: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+.sectionHeader {
+  font-family: 'Lato', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.feedSection {
+  position: absolute;
+  width: 40%;
+  right: 0;
+  top: 40%;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.feed {
+  border-radius: 5px;
+  background-color: #c8553dff;
+  color: #f4f6f6;
+  padding-right: 25px;
+  overflow: auto;
+
+}
+
+.feed li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+li {
+  margin-left: 10px;
 }
