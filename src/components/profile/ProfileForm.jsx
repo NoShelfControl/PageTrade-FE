@@ -1,70 +1,50 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useUpdateUser } from '../../context/AuthContext';
 
-export default class Profile extends Component {
-  state = {
-    name: '',
-    bio: '',
-    currentRead: '',
-    finalName: '',
-    finalBio: '',
-    finalCurrentRead: ''
+export default function Profile({ user }) {
+
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+
+  const update = useUpdateUser();
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
-  handleNameChange = (e) => {
-    this.setState({ name: e.target.value });
-  }
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
+  };
 
-  handleBioChange = (e) => {
-    this.setState({ bio: e.target.value });
-  }
 
-  handleCurrentReadChange = (e) => {
-    this.setState({ currentRead: e.target.value });
-  }
 
-  handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    this.setState({
-      finalName: this.state.name,
-      finalBio: this.state.bio,
-      finalCurrentRead: this.state.currentRead
-    });
-  }
+    await update({ ...user, 
+      userName: name, 
+      bio });
+  };
 
-  render() {
-    return (
-      <section>
-        <div>
-          <div>{this.state.finalName}</div>
-          <div>{this.state.finalBio}</div>
-          <div>{this.state.finalCurrentRead}</div>
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            placeholder="User Name"
-            onChange={this.handleNameChange}
-          />
-          <input
-            type="text"
-            name="bio"
-            value={this.state.bio}
-            placeholder="Bio"
-            onChange={this.handleBioChange}
-          />
-          <input
-            type="text"
-            name="currentRead"
-            value={this.state.currentRead}
-            placeholder="Currently Reading"
-            onChange={this.handleCurrentReadChange}
-          />
-          <button>Edit Profile</button>
-        </form>
-      </section>
-    );
-  }
+  return (
+    <section>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          placeholder="User Name"
+          onChange={handleNameChange}
+        />
+        <input
+          type="text"
+          name="bio"
+          value={bio}
+          placeholder="Bio"
+          onChange={handleBioChange}
+        />
+        <button>Edit Profile</button>
+      </form>
+    </section>
+  );
 }
