@@ -6,7 +6,7 @@ import { getSingleUserBooks } from '../../services/books-api';
 import styles from './Home.css';
 import logo from '../../assets/logo.png';
 import { useCurrentUser } from '../../context/AuthContext';
-// import Sidebar from '../sidebar/Sidebar';
+import Sidebar from '../sidebar/Sidebar';
 
 export default function Home() {
   const [books, setSingleBooks] = useState([]);
@@ -44,10 +44,11 @@ export default function Home() {
     <div className={styles.Home}>
       <header>
         <img id={styles.logo} src={logo} />
-        <Link to="/" className={styles.Link}>Home</Link >
+        {/* <Link to="/" className={styles.Link}>Home</Link >
         <Link to="/library/" className={styles.Link}>Library</Link >
-        <Link to={`/profile/${user.id}`} className={styles.Link}>Profile</Link >
+        <Link to={`/profile/${user.id}`} className={styles.Link}>Profile</Link > */}
       </header>
+      <Sidebar />
       <main>
         <section className={styles.BookSection}>
           <div>Trade {booksElements}</div>
@@ -57,7 +58,7 @@ export default function Home() {
       </main>
       <footer>
         <Link to="/about" className={styles.Link}>about</Link >
-        <Link to="/careers"className={styles.Link}>careers</Link >
+        <Link to="/careers" className={styles.Link}>careers</Link >
         <Link to="/terms" className={styles.Link}>terms of service</Link >
       </footer>
     </div>
