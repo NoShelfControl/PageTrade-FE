@@ -3,21 +3,28 @@
 exports[`book component renders books 1`] = `
 <DocumentFragment>
   <div
-    class="bigDiv"
+    class="bookSpine"
   >
     <div
-      class="deleteButton"
+      class="bigDiv"
     >
-      X
-    </div>
-    <img
-      alt="harry potter"
-      src="harry.jpg"
-    />
-    <div
-      class="name"
-    >
-      harry potter
+      <div
+        class="deleteButton"
+      >
+        X
+      </div>
+      <img
+        alt="harry potter"
+        src="harry.jpg"
+      />
+      <div
+        class="name"
+      >
+        harry potter
+      </div>
+      <div
+        class="bookPages"
+      />
     </div>
   </div>
 </DocumentFragment>

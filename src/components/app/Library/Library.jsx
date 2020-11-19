@@ -5,6 +5,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { deleteBook, getBooks, getSingleUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
+import Header from '../../header/Header';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
 
 export default class Library extends Component {
@@ -189,11 +190,12 @@ export default class Library extends Component {
 
   render() {
     return (
-      <>
+      <section id={styles.Library}>
+        <Header />
         <button className={styles.addButton} onClick={this.handleOpenModal}>ADD</button>
         <div className={styles.container}>
           <ReactModal
-            styles={styles.modal}
+            className={styles.modal}
             isOpen={this.state.showModal}
             contentLabel="SearchBox"
             ariaHideApp={false}
@@ -252,7 +254,7 @@ export default class Library extends Component {
             <Droppable droppableId="droppable2">
               {(provided, snapshot) => (
                 <div
-                  className={styles.rightBox}
+                  className={styles.centerBox}
                   ref={provided.innerRef}
                   style={getListStyle(snapshot.isDraggingOver)}>
                   {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
@@ -280,6 +282,10 @@ export default class Library extends Component {
                 </div>
               )}
             </Droppable>
+            <div className={styles.middleDiv}>
+              Drag a book to add to watchlist
+              <br />
+            </div>
             <Droppable droppableId="droppable3">
               {(provided, snapshot) => (
                 <div
@@ -306,14 +312,14 @@ export default class Library extends Component {
                       )}
                     </Draggable>
                   ))
-                    : <div className={styles.booksToTrade}>Books on watch list</div>}
+                    : <div className={styles.booksToTrade}>Books on watchlist</div>}
                   {provided.placeholder}
                 </div>
               )}
             </Droppable>
           </DragDropContext>
         </div>
-      </>
+      </section>
     );
   }
 }
