@@ -44,9 +44,6 @@ export default function Home() {
     <div className={styles.Home}>
       <header>
         <img id={styles.logo} src={logo} />
-        {/* <Link to="/" className={styles.Link}>Home</Link >
-        <Link to="/library/" className={styles.Link}>Library</Link >
-        <Link to={`/profile/${user.id}`} className={styles.Link}>Profile</Link > */}
       </header>
       <Sidebar />
       <main>
