@@ -16,6 +16,10 @@ export default function Profile() {
   const { loadingActions, actions } = useUserActions(userId);
   const sortedActions = feedSorter(userId, actions);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
 
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
   const wishListBooks = userBooks.filter(book => book.isWatched === true);
@@ -24,6 +28,10 @@ export default function Profile() {
     && book.isWatched === false);
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
   if(loading) return <h1>Loading...</h1>;
   if(loadingActions) return <h1>Loading...</h1>;
   if(!user) return <h1>Loading...</h1>;
@@ -44,6 +52,10 @@ export default function Profile() {
 
       <section>
         <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
+<<<<<<< HEAD
+=======
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
         <div>Collection</div>
         <ul>
           {collection.map(book => (

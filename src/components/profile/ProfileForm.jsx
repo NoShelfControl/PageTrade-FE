@@ -7,6 +7,7 @@ export default function Profile({ user }) {
   const [bio, setBio] = useState('');
 
   const update = useUpdateUser();
+<<<<<<< HEAD
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -15,6 +16,17 @@ export default function Profile({ user }) {
   const handleBioChange = (e) => {
     setBio(e.target.value);
   };
+=======
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
+  };
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
 
 
   const handleSubmit = async(e) => {

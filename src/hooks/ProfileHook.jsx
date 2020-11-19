@@ -4,6 +4,10 @@ import { getSingleUserBooks,
   getUserActions } 
   from '../services/books-api';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
 export const ProfileHook = (id) => {
   const [loading, setLoading] = useState(true);
   const [userBooks, setUserBooks] = useState([]);
@@ -27,6 +31,10 @@ export const useSingleUserBooks = () => {
       .finally(() => setLoading(false));
   }, []);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
   return { loading, singleUserBooks };
 };
 

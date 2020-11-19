@@ -80,4 +80,7 @@ export const getUserActions = (id) => {
     })));
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df1597e7dd7a63a20161b1924024b16412acec17
