@@ -1,25 +1,22 @@
-import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
-import styles from './Sidebar.css';
+import React, { useState, useRef } from 'react';
+import Menu from './Menu';
+import BurgerMenu from './BurgerMenu';
+import menu_icon from '../../assets/menu_icon.svg.png';
+import { useOnClickOutside } from '../../hooks/SidebarHook';
 
-export default function Sidebar() {
+function Sidebar() {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
+
   return (
-    <Menu>
-      <a href="/" className={styles.NavItem}>
-        Home
-      </a>
-      <a href="/library" className={styles.NavItem}>
-        Library
-      </a>
-      <a href="/profile" className={styles.NavItem}>
-        Profile
-      </a>
-      <a href="/requests" className={styles.NavItem}>
-        Requests
-      </a>
-      <a href="/about" className={styles.NavItem}>
-        About
-      </a>
-    </Menu>
+    <div>
+      <div ref={node}>
+        <BurgerMenu open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
+      </div>
+    </div>
   );
-};
+}
+
+export default Sidebar;
