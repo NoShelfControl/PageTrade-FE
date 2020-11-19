@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProfileForm from './ProfileForm';
 import { Link } from 'react-router-dom';
 import { ProfileHook, useUserActions } from '../../hooks/ProfileHook';
@@ -26,13 +26,13 @@ export default function Profile() {
 
 
 
-
   if(loading) return <h1>Loading...</h1>;
   if(loadingActions) return <h1>Loading...</h1>;
   if(!user) return <h1>Loading...</h1>;
 
   return (
     <div>
+      {console.log(user)}
       <header>
         <Link to="/">Home</Link >
         <Link to="/library">Library</Link >
@@ -40,12 +40,13 @@ export default function Profile() {
         <Link to="/about">About</Link >
       </header>
       { user.id === userId ?
-        <ProfileForm />
-        : null
+        <ProfileForm user={user} />
+        : <a href={`mailto:${user.email}`}>Request a Book</a>
       }
-      <button>Request a Book</button>
 
       <section>
+        <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
+
         <div>Collection</div>
         <ul>
           {collection.map(book => (
