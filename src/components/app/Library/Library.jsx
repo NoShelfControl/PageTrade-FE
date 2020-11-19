@@ -5,6 +5,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { deleteBook, getBooks, getSingleUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
+import Header from '../../header/Header';
 import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
 
 export default class Library extends Component {
@@ -189,11 +190,12 @@ export default class Library extends Component {
 
   render() {
     return (
-      <>
+      <section id={styles.Library}>
+        <Header />
         <button className={styles.addButton} onClick={this.handleOpenModal}>ADD</button>
         <div className={styles.container}>
           <ReactModal
-            styles={styles.modal}
+            className={styles.modal}
             isOpen={this.state.showModal}
             contentLabel="SearchBox"
             ariaHideApp={false}
@@ -317,7 +319,7 @@ export default class Library extends Component {
             </Droppable>
           </DragDropContext>
         </div>
-      </>
+      </section>
     );
   }
 }

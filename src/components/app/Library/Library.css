@@ -1,106 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
-.rightBox {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  right: 0;
-  top: 0;
-  height: 800px;
-  margin-left: 20px;
-  overflow: hidden;
-  font-family: 'Playfair Display', serif;
-  text-align: center;
-  align-items: center;
-}
+#Library {
+  .rightBox {
+    background-color: red;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    top: 0;
+    height: 800px;
+    margin-left: 20px;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    align-items: center;
+  }
 
-.centerBox {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  right: 0;
-  top: 0;
-  height: 800px;
-  margin-left: 20px;
-  overflow: hidden;
-  font-family: 'Playfair Display', serif;
-  text-align: center;
-  margin-right: 20px;
-  align-items: center;
+  .centerBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    top: 0;
+    height: 800px;
+    margin-left: 20px;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-right: 20px;
+    align-items: center;
 
-}
+  }
 
-.leftBox {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  top: 0;
-  height: 800px;
-  margin-right: 20px;
-  overflow: hidden;
-  font-family: 'Playfair Display', serif;
-  text-align: center;
-  align-items: center;
-}
+  .leftBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    height: 800px;
+    margin-right: 20px;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    align-items: center;
+  }
 
-.middleDiv {
+  .middleDiv {
 
-  height: 100px;
-}
+    height: 100px;
+  }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.addABook {
-  width: 100%;
-}
+  .addABook {
+    width: 100%;
+  }
 
-.booksToTrade {
-  vertical-align: middle;
-}
+  .booksToTrade {
+    vertical-align: middle;
+  }
 
+  .resultList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
 
-.modal {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(170, 170, 170);
-}
+  .resultItem {
+    position: relative;
+    background-color: rgb(100, 25, 25);
+    width: 175px;
+    border-left: 1px rgb(71, 18, 18) solid;
+    border-top: 1px rgb(71, 18, 18) solid;
+    border-bottom: 3px rgb(255, 255, 228) solid;
+    border-right: 5px rgb(255, 255, 228) solid;
+    color: white;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-right: 10px;
+  }
 
-.resultList {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
+  .addButton {
+    position: relative;
+    left: 29%
+  }
 
-.resultItem {
-  position: relative;
-  background-color: rgb(100, 25, 25);
-  width: 175px;
-  border-left: 1px rgb(71, 18, 18) solid;
-  border-top: 1px rgb(71, 18, 18) solid;
-  border-bottom: 3px rgb(255, 255, 228) solid;
-  border-right: 5px rgb(255, 255, 228) solid;
-  color: white;
-  margin-top: 10px;
-  padding-bottom: 5px;
-  text-align: center;
-  margin-right: 10px;
-}
-
-.addButton {
-  position: relative;
-  left: 29%
-}
-
-.arrow {
-  height: 50%;
-  width: 50%;
+  .arrow {
+    height: 50%;
+    width: 50%;
+  }
 }
