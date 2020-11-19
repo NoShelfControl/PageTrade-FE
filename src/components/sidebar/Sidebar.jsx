@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Menu from './Menu';
+import BurgerMenu from './BurgerMenu';
 import menu_icon from '../../assets/menu_icon.svg.png';
-import styles from './Sidebar.css';
+import { useOnClickOutside } from '../../hooks/SidebarHook';
 
 function Sidebar() {
-
-  const handleClick = () => {
-    { <img style={{ visibility: visible }} /> }
-  }
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
 
   return (
-    <div className={styles.Sidebar}>
-      <img src={menu_icon} alt="menu icon" className={styles.menuIcon} onClick={handleClick} />
-      <div>
-        <Menu />
+    <div>
+      <div ref={node}>
+        <BurgerMenu open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
       </div>
     </div>
-  )
+  );
 }
 
 export default Sidebar;

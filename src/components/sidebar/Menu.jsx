@@ -1,23 +1,20 @@
 import React from 'react';
-import styles from './Menu.css';
+import { StyledMenu } from './Menu.styled';
 
-const Menu = () => {
-
+const Menu = ({ open }) => {
   return (
-    <>
-      <div>
-        < a href="/">
-          Home
+    <StyledMenu open={open}>
+      <a href="/">
+        Home
       </a>
-        <a href="/library">
-          Library
-      </a>
-        <a href="/profile">
-          Profile
-      </a>
-      </div>
-    </>
-  );
-};
+      <a href="/library">
+        Library
+        </a>
+      <a href="/about">
+        About
+        </a>
+    </StyledMenu>
+  )
+}
 
 export default Menu;
