@@ -6,6 +6,7 @@ import styles from './Profile.css';
 import { useCurrentUser } from '../../context/AuthContext';
 import { useParams } from 'react-router-dom';
 import { feedSorter } from '../../utils/feed-sorter';
+import Loading from '../loading/Loading';
 
 
 export default function Profile() {
@@ -26,9 +27,9 @@ export default function Profile() {
 
 
 
-  if(loading) return <h1>Loading...</h1>;
-  if(loadingActions) return <h1>Loading...</h1>;
-  if(!user) return <h1>Loading...</h1>;
+  if(loading) return <Loading />;
+  if(loadingActions) return <Loading />;
+  if(!user) return <Loading />;
 
   return (
     <div>
