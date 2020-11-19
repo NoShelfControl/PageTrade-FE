@@ -47,6 +47,7 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
+      {console.log(sortedActions)}
       <header>
         <img id={styles.logo} src={logo} />
       </header>

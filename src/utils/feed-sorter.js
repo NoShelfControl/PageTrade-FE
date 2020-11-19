@@ -36,7 +36,6 @@ export const globalFeedSorter = (array) => {
   });
   return actionsFeed;
 };
-<<<<<<< HEAD
 
 export const homeFeedSorter = (array) => {
   const sortedFeed = array.slice().reverse();
@@ -55,5 +54,3 @@ export const homeFeedSorter = (array) => {
   });
   return actionsFeed;
 };
-=======
->>>>>>> 0342b7e3603b118fd284ec8a4672df6a9235eed5
