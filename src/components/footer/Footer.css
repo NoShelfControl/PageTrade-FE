@@ -12,6 +12,10 @@ body {
 }
 
 .Footer {
+  margin-top: 100px;
+  background-color: $color8;
+  height: 100%;
+  border-top: solid 4px $color7;
   padding: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -93,5 +97,54 @@ body {
   }
 
 
+.Careers {
 
+  #thiscontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
 
+  }
+  figure {
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 180px;
+    border: solid 1px $color7;
+    padding: 40px 50px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 0 3px 10px $color2;
+  }
+}
+
+.Terms {
+
+  #thatcontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
+
+  }
+  figure {
+    opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 480px;
+    border: solid 1px $color7;
+    padding: 40px 50px;
+    border-radius: 15px;
+    justify-self: center;
+    box-shadow: 0 3px 10px $color2;
+
+    h2 {
+      font-size: 20px;
+      color: $color2;
+    }
+  }
+}
