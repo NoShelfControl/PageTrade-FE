@@ -6,16 +6,19 @@ class Book extends React.Component {
   render() {
     const { provided, innerRef } = this.props;
     return (
-      <div
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        ref={innerRef}
-        className={styles.bigDiv}>
-        <div 
-          className={styles.deleteButton} 
-          onClick={this.props.handleDelete}>X</div>
-        <img src={this.props.src} alt={this.props.name} />
-        <div className={styles.name}>{this.props.name}</div>
+      <div className={styles.bookSpine}>
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={innerRef}
+          className={styles.bigDiv}>
+          <div 
+            className={styles.deleteButton} 
+            onClick={this.props.handleDelete}>X</div>
+          <img src={this.props.src} alt={this.props.name} />
+          <div className={styles.name}>{this.props.name}</div>
+          <div className={styles.bookPages} />
+        </div>
       </div>
     );
   }
