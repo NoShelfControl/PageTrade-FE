@@ -14,8 +14,10 @@ $color9: #cd6018;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px;
+    padding: 1%;
+    border: solid 6px $color5;
     background-color: $color9;
+    box-shadow: 0 5px 10px $color2;
 
     #logo {
       width: 8%;
