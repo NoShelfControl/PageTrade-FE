@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getSingleUserBooks } from '../../services/books-api';
 import styles from './Home.css';
 import logo from '../../assets/logo.png';
@@ -63,11 +62,7 @@ export default function Home() {
           })}
         </ul>
       </main>
-      <footer>
-        <Link to="/about" className={styles.Link}>about</Link >
-        <Link to="/careers" className={styles.Link}>careers</Link >
-        <Link to="/terms" className={styles.Link}>terms of service</Link >
-      </footer>
+      <Footer />
     </div>
   );
 }
