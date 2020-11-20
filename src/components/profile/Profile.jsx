@@ -58,7 +58,10 @@ export default function Profile() {
               </button>
             </ReactModal>
           </div>
-          : <a href={`mailto:${user.email}`}>Request a Book</a>
+          : <a 
+            className={styles.mailButton} 
+            href={`mailto:${user.email}`}>
+            Request a Book</a>
         }
         <div className={styles.sectionHeader}>Collection</div>
         <div className={styles.bookDiv}>

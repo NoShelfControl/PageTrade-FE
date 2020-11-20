@@ -13,12 +13,27 @@ header {
   margin-bottom: 25px;
   position: absolute;
   right: 0;
-  top: 12%;
+  top: 15%;
   margin-right: 20px;
   background-color: rgb(204, 90, 14);
   color: white;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
+}
+
+.mailButton {
+  display: block;
+  margin-bottom: 25px;
+  position: relative;
+  left: 1%;
+  top: 29.4%;
+  width: 140px;
+  margin-right: 20px;
+  background-color: rgb(5, 105, 114);
+  color: white;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  border: rgb(1, 73, 73) 4px solid;
 }
 
 .modal {
@@ -70,7 +85,7 @@ header {
   position: absolute;
   width: 40%;
   right: 0;
-  top: 40%;
+  top: 90%;
   margin-right: 10px;
   margin-left: 5px;
 }
@@ -79,7 +94,7 @@ header {
   position: absolute;
   width: 40%;
   right: 0;
-  top: 15%;
+  top: 50%;
   margin-right: 10px;
   margin-left: 5px;
 }
