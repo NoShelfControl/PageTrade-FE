@@ -61,7 +61,9 @@ export default function Home() {
           </div>
           <div>
             <h2>RECENTLY ADDED TO WATCH LISTS</h2> 
-            {watchListElements}
+            <section className={styles.booksElements}>
+              {watchListElements}
+            </section>
           </div>
         </section>
         <div className={styles.feed}>Feed

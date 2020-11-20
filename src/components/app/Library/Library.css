@@ -38,6 +38,7 @@
   }
 
   h2 {
+    background-color: rgba(213, 212, 212, 0.803);
     box-shadow: 5px 0px 3px 0 $color2;
     border-radius: 10px;
     padding-right: 10px;
@@ -45,7 +46,7 @@
     padding-bottom: 10px;
     writing-mode: vertical-lr;
     text-orientation: sideways;
-    position: absolute;
+    position: fixed;
     font-size: 1em;
     letter-spacing: 2px;
     color: $color5;

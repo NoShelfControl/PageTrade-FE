@@ -16,9 +16,11 @@ const Login = () => {
   };
 
   return (
-    <main>
-      <section className={styles.authcontainer}>
+    <section id={styles.Login}>
+      <img id={styles.logingraphic} src={logingraphic} />
+      <section className={styles.logincontainer}>
         <img id={styles.logo} src={logo} />
+        <h2>Sign In</h2>
         <form id={styles.signupform} onSubmit={handleSubmit}>
           <input
             type="email"
@@ -34,9 +36,8 @@ const Login = () => {
           />
           <button>Log In</button>
         </form>
-        <img id={styles.logingraphic} src={logingraphic} />
       </section>
-    </main>
+    </section>
   );
 };
 

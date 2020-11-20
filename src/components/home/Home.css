@@ -17,9 +17,15 @@ body {
   padding: 0px;
   box-sizing: border-box;
 
-  main {
-    margin: 20px;
-    padding: 20px;
+main {
+  background-image: url('../../assets/gridbackground.png');
+    border: solid 10px $color2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 
     .BookSection {
       width: 80%;
@@ -49,12 +55,20 @@ body {
         width: 100%;
       }
 
+      .booksElements {
+        width: 90%;
+        display: flex;
+        padding-left: 20px;
+        flex-wrap: wrap;
+      }
+
       li {
+        width: 150px;
         list-style: none;
       }
     }
 
-    div{
+    div {
     text-align: center;
     justify-content: center;
     margin: 20px;

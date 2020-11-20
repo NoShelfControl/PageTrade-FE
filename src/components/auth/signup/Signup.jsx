@@ -24,7 +24,7 @@ const Signup = () => {
   if(loadingActions) return <Loading />;
 
   return (
-    <main>
+    <section id={styles.Signup}>
       <img id={styles.signupgraphic} src={signupgraphic} />
       <section className={styles.authcontainer}>
         <img id={styles.logo} src={logo} alt="PageTrade Logo"/>
@@ -50,7 +50,7 @@ const Signup = () => {
           })}
         </ul>
       </section>
-    </main>
+    </section>
   );
 };
 
