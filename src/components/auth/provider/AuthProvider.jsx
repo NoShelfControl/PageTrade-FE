@@ -3,7 +3,10 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
-import { getVerify, postLogin, postSignup, updateUser } from '../../../services/auth';
+import { getVerify, 
+  postLogin, 
+  postSignup, 
+  updateUser } from '../../../services/auth';
 
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -27,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
   const update = (user) => {
     updateUser(user)
-      .then(user => setCurrentUser(user))
+      .then(user => setCurrentUser(user));
   };
 
   useEffect(() => {
