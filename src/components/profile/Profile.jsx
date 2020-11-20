@@ -35,84 +35,90 @@ export default function Profile() {
   return (
     <section>
       <Header />
-      <section>
-        <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
-        {user.id === userId ?
-          <div>
-            <button
-              className={styles.editButton}
-              onClick={() => setModalStatus(true)}>
-              Edit Profile
-            </button>
-            <ReactModal
-              className={styles.modal}
-              isOpen={modalStatus}
-              contentLabel="SearchBox"
-              ariaHideApp={false}>
-              <div className={styles.form}>
-                <ProfileForm user={user} />
-              </div>
-              <button className={styles.button}
-                onClick={() => setModalStatus(false)}>
+      <main>
+        <section id={styles.Profile}>
+          <section id={styles.editProfile}>
+            {user.id === userId ?
+              <div id={styles.thiscontainer}>
+                <ReactModal
+                  className={styles.modal}
+                  isOpen={modalStatus}
+                  contentLabel="SearchBox"
+                  ariaHideApp={false}>
+                  <div className={styles.form}>
+                    <ProfileForm user={user} />
+                  </div>
+                  <button className={styles.button}
+                    onClick={() => setModalStatus(false)}>
                 Close
-              </button>
-            </ReactModal>
-          </div>
-          : <a
-            className={styles.mailButton}
-            href={`mailto:${user.email}`}>
+                  </button>
+                </ReactModal>
+                <button
+                  className={styles.editButton}
+                  onClick={() => setModalStatus(true)}>
+              Edit Profile
+                </button>
+              </div>
+              : <a
+                className={styles.mailButton}
+                href={`mailto:${user.email}`}>
             Request a Book</a>
-        }
-        <div className={styles.sectionHeader}>Collection</div>
-        <div className={styles.bookDiv}>
-          <ul className={styles.bookLists}>
-            {collection.map(book => (
-              <li key={book.id}>
-                <img src={book.image} alt={book.title} />
-                <p>{book.title}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.sectionHeader}>Trade</div>
-        <div className={styles.bookDiv}>
-          <ul className={styles.bookLists}>
-            {booksToTrade.map(book => (
-              <li key={book.id}>
-                <img src={book.image} alt={book.title} />
-                <p>{book.title}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <div className={styles.sectionHeader}>Wish List</div>
-          <div className={styles.bookDiv}>
-            <ul className={styles.bookLists}>
-              {wishListBooks.map(book => (
-                <li key={book.id}>
-                  <img src={book.image} alt={book.title} />
-                  <p>{book.title}</p>
-                </li>
-              ))}
-            </ul>
+            }
+            <div className={styles.sectionHeader}>Collection</div>
+            <div className={styles.bookDiv}>
+              <ul className={styles.bookLists}>
+                {collection.map(book => (
+                  <li key={book.id}>
+                    <img src={book.image} alt={book.title} />
+                    <p>{book.title}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.sectionHeader}>Trade</div>
+            <div className={styles.bookDiv}>
+              <ul className={styles.bookLists}>
+                {booksToTrade.map(book => (
+                  <li key={book.id}>
+                    <img src={book.image} alt={book.title} />
+                    <p>{book.title}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.sectionHeader}>Wish List</div>
+            <div className={styles.bookDiv}>
+              <ul className={styles.bookLists}>
+                {wishListBooks.map(book => (
+                  <li key={book.id}>
+                    <img src={book.image} alt={book.title} />
+                    <p>{book.title}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+          <div>
           </div>
-        </div>
-        <div className={styles.bio}>
-          <div className={styles.sectionHeader}>Bio</div>
-          <div className={styles.bioText}>
-            <p>{user.bio}</p>
-          </div>
-        </div>
-        <div className={styles.feedSection}>
-          <div className={styles.sectionHeader}>Feed</div>
-          <ul className={styles.feed}>
-            {sortedActions.map((action, idx) => {
-              return <li key={idx}>{action}</li>;
-            })}
-          </ul>
-        </div>
-      </section>
+          <section id={styles.container2}>
+            <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
+            <div className={styles.bio}>
+              <div className={styles.sectionHeader}>Bio</div>
+              <div className={styles.bioText}>
+                <p>{user.bio}</p>
+              </div>
+            </div>
+            <div className={styles.feedSection}>
+              <div className={styles.sectionHeader}>Feed</div>
+              <ul className={styles.feed}>
+                {sortedActions.map((action, idx) => {
+                  return <li key={idx}>{action}</li>;
+                })}
+              </ul>
+            </div>
+          </section>
+        </section>
+      </main>
       <Footer />
     </section >
   );

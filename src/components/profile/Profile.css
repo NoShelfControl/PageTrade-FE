@@ -8,27 +8,84 @@ $color6: #f4f6f6;
 $color7: #b4c4ae;
 $color8: #8898AA;
 
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 40px;
-  background-color: #82A3A1;
+main {
+  padding: 5px;
+  margin: 10px;
   border-radius: 5px;
+  background-image: url(../../assets/gridbackground.png);
+  background-size: cover;
 }
 
+#Profile {
+  background-color: $color6;
+  border: solid $color2 5px;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin: 50px;
+
+  #editProfile{
+    padding: 20px;
+  }
+
+  #container2 {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    padding: 20px;
+    width: 800px;
+    margin-left: 150px;
+    right: 0%;
+  }
+
+  h1{
+    width: 40%;
+    justify-self: center;
+    max-width: 300px;
+    background-color: $color5;
+    border: 2px solid $color2;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    font-size: 25px;
+  }
+  
+  .bookDiv {
+    border: solid 5px $color8;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    background-color: $color3;
+    box-shadow: 2px 2px 5px black;
+    
+    .bookLists {
+      border: solid 6px $color6;
+      width: auto;
+      border-radius: 5px;
+      background-color: $color8;
+      display: flex;
+      align-items: flex-start;
+      justify-items: center;
+      overflow: auto;
+      width: auto;
+      list-style: none;
+      color: white;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+
+  
 .editButton {
-  margin-top: 200px;
-  z-index: 1;
-  position: absolute;
-  right: 0;
-  top: 15%;
-  margin-right: 20px;
-  background-color: rgb(204, 90, 14);
+  padding: 3px;
+  margin-bottom: 10px;
+  grid-column-start: 2;
+  box-shadow: 2px 2px 3px black; 
+  background-color: $color2;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Lato', sans-serif;
-  border-radius: 40px;
+  border-radius: 10px;
   padding: 5px;
 }
 
@@ -37,18 +94,15 @@ header {
   }
 
 .mailButton {
-  display: block;
-  margin-bottom: 25px;
-  position: relative;
-  left: 1%;
-  top: 29.4%;
-  width: 140px;
-  margin-right: 20px;
-  background-color: rgb(5, 105, 114);
-  color: white;
-  font-size: 20px;
-  font-family: 'Lato', sans-serif;
-  border: rgb(1, 73, 73) 4px solid;
+ border: solid $color2 5px;
+ background-color: $color5;
+ margin: 20px;
+ text-decoration: none;
+ padding: 5px;
+ font-size: 15px;
+ color: white;
+ border-radius: 5px;
+ box-shadow: 1px 1px 2px black;
 }
 
 .modal {
@@ -72,18 +126,6 @@ header {
   cursor: pointer;
 }
 
-.bookLists {
-  border-radius: 5px;
-  background-color: rgb(128, 128, 128);
-  display: flex;
-  align-items: flex-start;
-  justify-items: center;
-  color: #f4f6f6;
-  padding-right: 25px;
-  list-style: none;
-  overflow: auto;
-  width: 50%;
-}
 
 .bookLists li {
   width: 150px;
@@ -96,34 +138,28 @@ header {
   font-size: 25px;
   font-weight: 800;
   width: 150px;
+  margin: 20px;
 }
 
 .feedSection {
-  position: absolute;
-  width: 40%;
-  right: 0;
-  top: 90%;
-  margin-right: 10px;
-  margin-left: 5px;
+ bottom: 10;
 }
 
 .bio {
-  position: absolute;
-  width: 40%;
-  right: 0;
-  top: 50%;
-  margin-right: 10px;
-  margin-left: 5px;
+  width: 100%;  
 }
 
 .bioText {
   height: 175px;
   margin-top: 15px;
   border-radius: 5px;
-  background-color: #c8553dff;
-  color: #f4f6f6;
+  border: solid 1px black;
+  box-shadow: 1px 1px 3px black;
+  color: white;
+  background-color: #dfd8d8;
   padding-right: 25px;
   overflow: auto;
+  margin-bottom: 10px;
 }
 
 .bioText p {
@@ -133,18 +169,23 @@ header {
 
 .feed {
   border-radius: 5px;
-  background-color: #c8553dff;
-  color: #f4f6f6;
+  background-color: $color7;
+  border: solid black 1px;
+  box-shadow: 1px 1px 3px black;
+  color: $color2;
   padding-right: 25px;
   overflow: auto;
 
 }
 
 .feed li {
+  list-style: none;
+  padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 li {
   margin-left: 10px;
+}
 }
