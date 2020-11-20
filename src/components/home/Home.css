@@ -17,9 +17,15 @@ body {
   padding: 0px;
   box-sizing: border-box;
 
-  main {
-    margin: 20px;
-    padding: 20px;
+main {
+  background-image: url('../../assets/gridbackground.png');
+    border: solid 10px $color2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 
     .BookSection {
       width: 80%;
@@ -28,25 +34,47 @@ body {
       background-color: $color8;
       display: grid;
       grid-template-columns: 50% 50%;
-      min-height: 200px;
+      min-height: 20%;
       justify-content: center;
       overflow: auto;
+
+      h2 {
+        box-shadow: 5px 0px 5px 0 $color2;
+        border-radius: 10px;
+        padding: 10px;
+        writing-mode: vertical-lr;
+        text-orientation: sideways;
+        justify-self: center;
+        position: absolute;
+        font-size: 1em;
+        letter-spacing: 2px;
+        color: $color1;
+      }
 
       @media(max-width: 570px){
         width: 100%;
       }
 
+      .booksElements {
+        width: 90%;
+        display: flex;
+        padding-left: 20px;
+        flex-wrap: wrap;
+      }
+
       li {
+        width: 150px;
         list-style: none;
       }
     }
 
-    div{
+    div {
     text-align: center;
     justify-content: center;
     margin: 20px;
     padding: 20px;
-    border: solid;
+    border: solid 2px $color6;
+    box-shadow: 0 0 2px 2px $color7;
     }
 
     .feed {

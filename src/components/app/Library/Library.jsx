@@ -220,11 +220,50 @@ export default class Library extends Component {
             <DragDropContext onDragEnd={this.onDragEnd}>
               <Droppable droppableId="droppable">
                 {(provided, snapshot) => (
-                  <div className={styles.shelf}
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}>
-                    {this.state.items.length > 0 ?
-                      this.state.items.map((item, index) => (
+                  <div>
+                    <h2>LIBRARY</h2>
+                    <div className={styles.shelf}
+                      ref={provided.innerRef}
+                      style={getListStyle(snapshot.isDraggingOver)}>
+                      {this.state.items.length > 0 ?
+                        this.state.items.map((item, index) => (
+                          <Draggable
+                            key={item.id}
+                            draggableId={item.id}
+                            index={index}>
+                            {(provided, snapshot) => (
+                              <Book
+                                src={item.image}
+                                name={item.title}
+                                innerRef={provided.innerRef}
+                                provided={provided}
+                                handleDelete={() => this.deleteItemsItem(index)}
+                                style={getItemStyle(
+                                  snapshot.isDragging,
+                                  provided.draggableProps.style
+                                )}
+                              
+                              />
+                            )}
+                          </Draggable>
+                        
+
+                        )) : <div className={styles.columntext}>Add A Book!</div>}
+                      {provided.placeholder}
+                    </div>
+                  </div>
+                )}
+              </Droppable>
+
+              <Droppable droppableId="droppable2">
+                {(provided, snapshot) => (
+                  <div>
+                    <h2>BOOKS FOR TRADE</h2>
+                    <div
+                      className={styles.shelf}
+                      ref={provided.innerRef}
+                      style={getListStyle(snapshot.isDraggingOver)}>
+                      {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
                         <Draggable
                           key={item.id}
                           draggableId={item.id}
@@ -233,85 +272,55 @@ export default class Library extends Component {
                             <Book
                               src={item.image}
                               name={item.title}
+                              handleDelete={() => this.deleteSelectedItem(index)}
                               innerRef={provided.innerRef}
                               provided={provided}
-                              handleDelete={() => this.deleteItemsItem(index)}
                               style={getItemStyle(
                                 snapshot.isDragging,
                                 provided.draggableProps.style
                               )}
-                              
                             />
                           )}
                         </Draggable>
-                        
-
-                      )) : <div className={styles.columntext}>Library</div>}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-
-              <Droppable droppableId="droppable2">
-                {(provided, snapshot) => (
-                  <div
-                    className={styles.shelf}
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}>
-                    {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item.id}
-                        index={index}>
-                        {(provided, snapshot) => (
-                          <Book
-                            src={item.image}
-                            name={item.title}
-                            handleDelete={() => this.deleteSelectedItem(index)}
-                            innerRef={provided.innerRef}
-                            provided={provided}
-                            style={getItemStyle(
-                              snapshot.isDragging,
-                              provided.draggableProps.style
-                            )}
-                          />
-                        )}
-                      </Draggable>
-                    ))
-                      : <div className={styles.columntext}>Books to trade</div>}
-                    {provided.placeholder}
+                      ))
+                        : <div className={styles.columntext}>Add A Book!</div>}
+                      {provided.placeholder}
+                    </div>
                   </div>
                 )}
               </Droppable>
   
               <Droppable droppableId="droppable3">
                 {(provided, snapshot) => (
-                  <div
-                    className={styles.shelf}
-                    ref={provided.innerRef}
-                    style={getListStyle(snapshot.isDraggingOver)}>
-                    {this.state.watchList.length > 0 ? this.state.watchList.map((item, index) => (
-                      <Draggable
-                        key={item.id}
-                        draggableId={item.id}
-                        index={index}>
-                        {(provided, snapshot) => (
-                          <Book
-                            src={item.image}
-                            name={item.title}
-                            handleDelete={() => this.deleteWatchListItem(index)}
-                            innerRef={provided.innerRef}
-                            provided={provided}
-                            style={getItemStyle(
-                              snapshot.isDragging,
-                              provided.draggableProps.style
-                            )}
-                          />
-                        )}
-                      </Draggable>
-                    ))
-                      : <div className={styles.columntext}>Watchlist</div>}
-                    {provided.placeholder}
+                  <div>
+                    <h2>WATCHLIST</h2>
+                    <div
+                      className={styles.shelf}
+                      ref={provided.innerRef}
+                      style={getListStyle(snapshot.isDraggingOver)}>
+                      {this.state.watchList.length > 0 ? this.state.watchList.map((item, index) => (
+                        <Draggable
+                          key={item.id}
+                          draggableId={item.id}
+                          index={index}>
+                          {(provided, snapshot) => (
+                            <Book
+                              src={item.image}
+                              name={item.title}
+                              handleDelete={() => this.deleteWatchListItem(index)}
+                              innerRef={provided.innerRef}
+                              provided={provided}
+                              style={getItemStyle(
+                                snapshot.isDragging,
+                                provided.draggableProps.style
+                              )}
+                            />
+                          )}
+                        </Draggable>
+                      ))
+                        : <div className={styles.columntext}>Add A Book!</div>}
+                      {provided.placeholder}
+                    </div>
                   </div>
                 )}
               </Droppable>
