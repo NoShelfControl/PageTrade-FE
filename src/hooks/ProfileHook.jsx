@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getSingleUserBooks, 
   getUserBooks, 
   getUserActions, 
-  getGlobalActions} 
+  getGlobalActions } 
   from '../services/books-api';
 
 export const ProfileHook = (id) => {
