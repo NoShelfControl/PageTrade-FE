@@ -53,8 +53,16 @@ export default function Home() {
       <Sidebar />
       <main>
         <section className={styles.BookSection}>
-          <div>Recently Added For Trade {booksElements}</div>
-          <div>Added to Watch List {watchListElements}</div>
+          <div>
+            <h2>RECENTLY ADDED FOR TRADE</h2>
+            <section className={styles.booksElements}>
+              {booksElements}
+            </section>
+          </div>
+          <div>
+            <h2>RECENTLY ADDED TO WATCH LISTS</h2> 
+            {watchListElements}
+          </div>
         </section>
         <div className={styles.feed}>Feed
           <ul>
