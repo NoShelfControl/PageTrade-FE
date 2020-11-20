@@ -79,5 +79,13 @@ main {
 }
 }
 
+.feedList {
+  font-size: 12px;
+  margin-top: 100px;
+  background-color: rgb(103, 104, 107);
+  width: 400px;
+  border-radius: 10px;
+}
+
 
 

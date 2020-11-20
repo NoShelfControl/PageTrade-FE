@@ -5,6 +5,7 @@ export default function Profile({ user }) {
 
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
+  const [status, setStatus] = useState('');
 
   const update = useUpdateUser();
 
@@ -20,7 +21,7 @@ export default function Profile({ user }) {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-
+    setStatus('Changes complete!');
     await update({ ...user, 
       userName: name, 
       bio });
@@ -44,6 +45,7 @@ export default function Profile({ user }) {
           onChange={handleBioChange}
         />
         <button>Edit Profile</button>
+        <p>{status}</p>
       </form>
     </section>
   );
