@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$color1: #fcfdafff;
+$color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
+$color7: #b4c4ae;
+$color8: #8898AA;
+
+body {
+  background-color: $color6;
+}
+
+.Home {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+main {
+  background-image: url('../../assets/gridbackground.png');
+    border: solid 10px $color2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    .BookSection {
+      width: 80%;
+      height: 70vh;
+      border: solid white 5px;
+      background-color: $color8;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      min-height: 20%;
+      justify-content: center;
+      overflow: auto;
+
+      h2 {
+        box-shadow: 5px 0px 5px 0 $color2;
+        border-radius: 10px;
+        padding: 10px;
+        writing-mode: vertical-lr;
+        text-orientation: sideways;
+        justify-self: center;
+        position: absolute;
+        font-size: 1em;
+        letter-spacing: 2px;
+        color: $color1;
+      }
+
+      @media(max-width: 570px){
+        width: 100%;
+      }
+
+      .booksElements {
+        width: 90%;
+        display: flex;
+        padding-left: 20px;
+        flex-wrap: wrap;
+      }
+
+      li {
+        width: 150px;
+        list-style: none;
+      }
+    }
+
+    div {
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    border: solid 2px $color6;
+    box-shadow: 0 0 2px 2px $color7;
+    }
+
+    .feed {
+      background-color: white;
+      width: 60%;
+    }
+
+    .feed ul {
+      list-style: none;
+    }
+  }
+}

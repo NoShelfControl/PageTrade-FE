@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$color1: #fcfdafff;
+$color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
+$color7: #b4c4ae;
+$color8: #8898AA;
+
+#Signup {
+  padding: 100px;
+  border: solid 10px $color2;
+  border-radius: 5px;
+  background-image: url('../../../assets//gridbackground.png');
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  margin: auto;
+  height: 80vh;
+
+  #signupgraphic {
+    background-color: $color8;
+    padding: 50px;
+    grid-column-start: 2;
+    max-width: 250px;
+    height: auto;
+    margin: 10px;
+    box-shadow: 5px 5px 2px $color5;
+    }
+
+  .authcontainer {
+    padding: 60px;
+    grid-column-start: 3;
+    border: solid $color8 8px;
+    background-color: $color6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: $color5;
+    justify-content: center;
+    margin: 20px 15px;
+    box-shadow: 5px 5px 2px $color5;
+    
+    #logo {
+      width: 200px;
+      }  
+
+    #signupform {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+
+    input {
+      border: solid 1px $color2;
+      box-shadow: 1px 1px 1px black;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    button {
+      cursor: pointer;
+      border: solid 4px $color7;
+      border-radius: 30px;
+      padding: 10px;
+      font-size: 20px;
+      margin: 20px;
+    }
+  }
+  }
+
+  .feedList {
+    margin-top: 30px;
+    opacity: 70%;
+    font-family: 'Lato';
+    color: white;
+    padding: 20px;
+    font-size: 15px;
+    background-color: rgb(103, 104, 107);
+    width: 90%;
+    border-radius: 10px;
+  }
+}
