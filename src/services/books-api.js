@@ -80,3 +80,14 @@ export const getUserActions = (id) => {
     })));
 };
 
+export const getGlobalActions = () => {
+  return get('/api/v1/feed/')
+    .then(actions => actions.map(action => ({
+      id: action.id,
+      userId: action.userId,
+      actionType: action.actionType,
+      book: action.book
+    })));
+};
+
+
