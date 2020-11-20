@@ -25,34 +25,30 @@ const Signup = () => {
 
   return (
     <main>
+      <img id={styles.signupgraphic} src={signupgraphic} />
       <section className={styles.authcontainer}>
-        <img id={styles.logo} src={logo} />
-        <h1 id={styles.introtext}> 
-          <span>Connect with readers</span>
-          <span>Connect with books</span>
-        Join our community today
-          <form id={styles.signupform} onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={({ target }) => setEmail(target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
-            />
-            <button>Join Now</button>
-          </form>
-          <ul className={styles.feedList}>
-            {sortedActions.map((action, idx) => {
-              return <li key={idx}>{action}</li>;
-            })}
-          </ul>
-        </h1>
-        <img id={styles.signupgraphic} src={signupgraphic} />
+        <img id={styles.logo} src={logo} alt="PageTrade Logo"/>
+        <h2>Join Our Community Today</h2>
+        <form id={styles.signupform} onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <button>Join Now</button>
+        </form>
+        <ul className={styles.feedList}>
+          {sortedActions.map((action, idx) => {
+            return <li key={idx}>{action}</li>;
+          })}
+        </ul>
       </section>
     </main>
   );
