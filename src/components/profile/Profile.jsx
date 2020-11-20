@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ProfileForm from './ProfileForm';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import { ProfileHook, useUserActions } from '../../hooks/ProfileHook';
 import styles from './Profile.css';
 import ReactModal from 'react-modal';
@@ -31,7 +33,8 @@ export default function Profile() {
   if(!user) return <Loading />;
 
   return (
-    <div>
+    <section>
+      <Header />
       <section>
         <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
         { user.id === userId ?
@@ -107,6 +110,7 @@ export default function Profile() {
           </ul>
         </div>
       </section>
-    </div >
+      <Footer />
+    </section >
   );
 }
