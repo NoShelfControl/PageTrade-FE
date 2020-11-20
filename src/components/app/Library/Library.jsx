@@ -186,7 +186,7 @@ export default class Library extends Component {
     const newList = this.state.watchList;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
-    this.setState({ selected: newList });
+    this.setState({ watchList: newList });
   }
 
   render() {
