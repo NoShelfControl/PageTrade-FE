@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getSingleUserBooks, 
   getUserBooks, 
   getUserActions, 
-  getGlobalActions} 
+  getGlobalActions, 
+  getAllBooks} 
   from '../services/books-api';
 
 export const ProfileHook = (id) => {
@@ -29,6 +30,19 @@ export const useSingleUserBooks = () => {
   }, []);
 
   return { loading, singleUserBooks };
+};
+
+export const useAllBooks = () => {
+  const [loading, setLoading] = useState(true);
+  const [allBooks, setAllBooks] = useState([]);
+
+  useEffect(() => {
+    getAllBooks()
+      .then(books => setAllBooks(books))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { loading, allBooks };
 };
 
 export const useUserActions = (id) => {

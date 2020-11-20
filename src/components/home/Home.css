@@ -30,6 +30,7 @@ body {
       grid-template-columns: 50% 50%;
       min-height: 200px;
       justify-content: center;
+      overflow: auto;
 
       @media(max-width: 570px){
         width: 100%;
@@ -51,6 +52,10 @@ body {
     .feed {
       background-color: white;
       width: 60%;
+    }
+
+    .feed ul {
+      list-style: none;
     }
   }
 }
