@@ -39,6 +39,20 @@ export const getUserBooks = (id) => {
     })));
 };
 
+export const getAllBooks = () => {
+  return get('/api/v1/books/all')
+    .then(books => books.map(book => ({
+      id: book.id,
+      title: book.title,
+      author: book.author,
+      googleId: book.googleId,
+      image: book.image,
+      isTradeable: book.isTradeable,
+      isWatched: book.isWatched,
+      ownerId: book.ownerId
+    })));
+};
+
 export const getSingleUserBooks = () => {
   return get('/api/v1/books/')
     .then(books => books.map(book => ({

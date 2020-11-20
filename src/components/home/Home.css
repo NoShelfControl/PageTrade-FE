@@ -17,21 +17,6 @@ body {
   padding: 0px;
   box-sizing: border-box;
 
-  header {
-    display: flex;
-    justify-content: flex-start;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px;
-    background-color: $color6;
-    border: 1px solid $color5;
-    border-radius: 5px;
-
-    #logo {
-      width: 100px;
-    }
-  }
-
   main {
     margin: 20px;
     padding: 20px;
@@ -67,9 +52,5 @@ body {
       background-color: white;
       width: 60%;
     }
-  }
-
-  @media(max-width: 480px){
-
   }
 }

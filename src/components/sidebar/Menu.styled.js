@@ -36,6 +36,7 @@ export const StyledMenu = styled.nav`
     @media (max-width: 870px) {
       font-size: 1rem;
       text-align: center;
+      flex-wrap: wrap;
     }
 
     &:hover {
