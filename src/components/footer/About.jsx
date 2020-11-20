@@ -20,7 +20,7 @@ export default function About() {
         <figure>
           <h2>Ryan</h2>
           <img alt="Ryan Diffenbaugh" src={Ryan} />
-          <p>Favorite book: Broken Monsters by Lauren Buekes</p>
+          <p>Favorite book: <br /> Broken Monsters <br /> by <br /> Lauren Buekes</p>
           <section id={styles.profilelinks}>
             <Link to="https://github.com/Ryan-Diff">
               <img className={styles.icon} alt="github icon" src={Github} />
@@ -34,7 +34,7 @@ export default function About() {
         <figure>
           <h2>Heather</h2>
           <img alt="Heather Peterson" src={Heather} />
-          <p>Favorite book: The Poisonwood Bible by Barbara Kingsolver</p>
+          <p>Favorite book: <br /> The Poisonwood Bible <br /> by <br /> Barbara Kingsolver</p>
           <section id={styles.profilelinks}>
             <Link to="https://github.com/hpeterson462">
               <img className={styles.icon} alt="github icon" src={Github} />
@@ -48,7 +48,7 @@ export default function About() {
         <figure>
           <h2>Charlie</h2>
           <img alt="Charlie Smith" src={Charlie} />
-          <p>Favorite book: Hologram For A King by Dave Eggers</p>
+          <p>Favorite book: <br /> Hologram For A King <br /> by <br /> Dave Eggers</p>
           <section id={styles.profilelinks}>
             <Link to="https://github.com/internetcharles">
               <img className={styles.icon} alt="github icon" src={Github} />
@@ -62,7 +62,7 @@ export default function About() {
         <figure>
           <h2>Brooke</h2>
           <img alt="Brooke Perkins" src={Brooke} />
-          <p>Favorite book: The Shipping News by Annie Proulx</p>
+          <p>Favorite book: <br /> The Shipping News <br /> by <br /> Annie Proulx</p>
           <section id={styles.profilelinks}>
             <Link to="https://github.com/brookeperkins">
               <img className={styles.icon} alt="github icon" src={Github} />
