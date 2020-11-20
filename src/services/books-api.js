@@ -74,7 +74,6 @@ export const updateTradeable = (book, ownerId) => {
 
 export const deleteBook = (id) => {
   return del(`/api/v1/books/user/${id}`);
-
 };
 
 export const postAction = (action) => {
