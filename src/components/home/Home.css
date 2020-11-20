@@ -59,7 +59,8 @@ body {
     justify-content: center;
     margin: 20px;
     padding: 20px;
-    border: solid;
+    border: solid 2px $color6;
+    box-shadow: 0 0 2px 2px $color7;
     }
 
     .feed {
