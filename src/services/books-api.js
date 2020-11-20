@@ -69,20 +69,18 @@ export const getSingleUserBooks = () => {
 
 
 export const updateTradeable = (book, ownerId) => {
-  return put(`/api/v1/books/user/${ownerId}`, book)
-    .then(res => console.log(res));
+  return put(`/api/v1/books/user/${ownerId}`, book);
 };
 
 export const deleteBook = (id) => {
-  return del(`/api/v1/books/user/${id}`)
-    .then(res => console.log(res));
+  return del(`/api/v1/books/user/${id}`);
+
 };
 
 export const postAction = (action) => {
   return post('/api/v1/feed', {
     ...action
-  })
-    .then(res => console.log(res));
+  });
 };
 
 export const getUserActions = (id) => {

@@ -4,6 +4,5 @@ export const booksSorter = (array) => {
   const sortedWatchFeed = sortedFeed.filter(x => x.isWatched == true);
   const slicedSortedTradeFeed = sortedTradeFeed.slice(0, 10);
   const slicedSortedWatchFeed = sortedWatchFeed.slice(0, 10);
-  console.log(slicedSortedWatchFeed, slicedSortedTradeFeed);
   return [slicedSortedTradeFeed, slicedSortedWatchFeed];
 };
