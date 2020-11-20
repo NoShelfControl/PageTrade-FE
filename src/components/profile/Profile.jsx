@@ -14,7 +14,7 @@ import Loading from '../loading/Loading';
 export default function Profile() {
   const [modalStatus, setModalStatus] = useState(false);
   const user = useCurrentUser();
-  const { userId } = useParams(); 
+  const { userId } = useParams();
   const { loading, userBooks } = ProfileHook(userId);
   const { loadingActions, actions } = useUserActions(userId);
   const sortedActions = feedSorter(userId, actions);
@@ -22,25 +22,25 @@ export default function Profile() {
 
   const booksToTrade = userBooks.filter(book => book.isTradeable === true);
   const wishListBooks = userBooks.filter(book => book.isWatched === true);
-  const collection = userBooks.filter(book => 
-    book.isTradeable === false 
+  const collection = userBooks.filter(book =>
+    book.isTradeable === false
     && book.isWatched === false);
 
 
 
-  if(loading) return <Loading />;
-  if(loadingActions) return <Loading />;
-  if(!user) return <Loading />;
+  if (loading) return <Loading />;
+  if (loadingActions) return <Loading />;
+  if (!user) return <Loading />;
 
   return (
     <section>
       <Header />
       <section>
         <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
-        { user.id === userId ?
+        {user.id === userId ?
           <div>
-            <button 
-              className={styles.editButton} 
+            <button
+              className={styles.editButton}
               onClick={() => setModalStatus(true)}>
               Edit Profile
             </button>
@@ -52,14 +52,14 @@ export default function Profile() {
               <div className={styles.form}>
                 <ProfileForm user={user} />
               </div>
-              <button className={styles.button} 
+              <button className={styles.button}
                 onClick={() => setModalStatus(false)}>
                 Close
               </button>
             </ReactModal>
           </div>
-          : <a 
-            className={styles.mailButton} 
+          : <a
+            className={styles.mailButton}
             href={`mailto:${user.email}`}>
             Request a Book</a>
         }
@@ -107,7 +107,7 @@ export default function Profile() {
         <div className={styles.feedSection}>
           <div className={styles.sectionHeader}>Feed</div>
           <ul className={styles.feed}>
-            { sortedActions.map((action, idx) => {
+            {sortedActions.map((action, idx) => {
               return <li key={idx}>{action}</li>;
             })}
           </ul>
