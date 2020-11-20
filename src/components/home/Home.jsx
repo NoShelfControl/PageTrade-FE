@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { getSingleUserBooks } from '../../services/books-api';
 import styles from './Home.css';
-import logo from '../../assets/logo.png';
 import { useCurrentUser } from '../../context/AuthContext';
 import Sidebar from '../sidebar/Sidebar';
 import Footer from '../footer/Footer';
+import Header from '../header/Header';
 
 export default function Home() {
   const [books, setSingleBooks] = useState([]);
@@ -42,9 +42,7 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
-      <header>
-        <img id={styles.logo} src={logo} />
-      </header>
+      <Header />
       <Sidebar />
       <main>
         <section className={styles.BookSection}>
