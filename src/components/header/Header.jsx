@@ -5,9 +5,11 @@ import logo from '../../assets/logo.png';
 
 export default function Header() {
   return (
-    <header id={styles.Header}>
-      <img id={styles.logo} src={logo} />
-      <Sidebar />
-    </header>
+    <>
+      <header id={styles.Header}>
+        <img id={styles.logo} src={logo} />
+        <Sidebar />
+      </header>
+    </>
   );
 }

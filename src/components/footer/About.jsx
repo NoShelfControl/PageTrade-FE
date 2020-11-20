@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
+import Header from '../header/Header';
 import styles from './Footer.css';
 import Ryan from '../../assets/ryan.jpg';
 import Heather from '../../assets/heather.jpg';
@@ -12,6 +13,7 @@ import Linkedin from '../../assets/linkedin.png';
 export default function About() {
   return (
     <section>
+      <Header />
       <h1>MEET THE TEAM</h1>         
       <section className={styles.About}>
         <figure>
