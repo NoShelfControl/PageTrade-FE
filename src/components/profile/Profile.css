@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$color1: #fcfdafff;
+$color2: #465362ff;
+$color3: #82a3a1ff;
+$color4: #f28f3bff;
+$color5: #c8553dff;
+$color6: #f4f6f6;
+$color7: #b4c4ae;
+$color8: #8898AA;
 
 header {
   display: flex;
@@ -10,7 +18,8 @@ header {
 }
 
 .editButton {
-  margin-bottom: 25px;
+  margin-top: 200px;
+  z-index: 1;
   position: absolute;
   right: 0;
   top: 15%;
@@ -19,6 +28,27 @@ header {
   color: white;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
+  border-radius: 40px;
+  padding: 5px;
+}
+
+  .editButton:hover {
+    cursor: pointer;
+  }
+
+.mailButton {
+  display: block;
+  margin-bottom: 25px;
+  position: relative;
+  left: 1%;
+  top: 29.4%;
+  width: 140px;
+  margin-right: 20px;
+  background-color: rgb(5, 105, 114);
+  color: white;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  border: rgb(1, 73, 73) 4px solid;
 }
 
 .mailButton {
@@ -40,12 +70,12 @@ header {
   width: 500px;
   height: 250px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   position: absolute;
   right: 33%;
   top: 15%;
-  background-color: lightblue;
+  background-color: $color8;
   border-radius: 5px;
 }
 
@@ -53,6 +83,8 @@ header {
   position: absolute;
   bottom: 10%;
   right: 10;
+  box-shadow: 0 1px 5px $color2;
+  cursor: pointer;
 }
 
 .bookLists {

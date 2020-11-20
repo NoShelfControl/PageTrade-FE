@@ -1,18 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
-
-
+body {
+  $min: 100px;
+  $color1: #fcfdafff;
+  $color2: #465362ff;
+  $color3: #82a3a1ff;
+  $color4: #f28f3bff;
+  $color5: #c8553dff;
+  $color6: #f4f6f6;
+  $color7: #b4c4ae;
+  $color8: #8898AA;
+}
 
 .bigDiv {
   position: relative;
-  background-color: rgb(100, 25, 25);
-  width: 175px;
-  border-left: 1px rgb(71, 18, 18) solid;
-  border-top: 1px rgb(71, 18, 18) solid;
+  background-color: $color2;
+  box-shadow: 2px 2px 2px 2px $color8;
+  width: 170px;
+  margin-left: 20px;
+  border-radius: 5px;
+  border-left: 1px solid $color2;
+  border-top: 1px rgb(80, 70, 70) solid;
   border-bottom: 3px rgb(255, 255, 228) solid;
   border-right: 5px rgb(255, 255, 228) solid;
   color: white;
   margin-top: 10px;
   padding-bottom: 5px;
+
+  img {
+    margin-top: 5px;
+    border: solid 2px $color6;
+    border-radius: 5px;
+  }
 }
 
 .bigDiv:hover .deleteButton {
@@ -20,16 +37,19 @@
 }
 
 .name {
-  background-color: rgb(71, 18, 18);
-  font-family: 'Playfair Display', serif;
+  padding: 5px;
+  background-color: rrgb(80, 70, 70);
+  font-family: 'Lato';
 }
 
 .deleteButton {
   display: none;
-  background-color: red;
+  background-color: $color5;
+  border-radius: 100px;
   color: white;
   position: absolute;
   top: 0;
   right: 0px;
-  font-size: 25px;
+  padding: 5px;
+  font-size: 20px;
 }

@@ -6,6 +6,7 @@ import Header from '../header/Header';
 import styles from './Footer.css';
 import Ryan from '../../assets/ryan.jpg';
 import Heather from '../../assets/heather.jpg';
+import Charlie from '../../assets/charlie.png';
 import Brooke from '../../assets/brooke.jpg';
 import Github from '../../assets/github.png';
 import Linkedin from '../../assets/linkedin.png';
@@ -46,8 +47,8 @@ export default function About() {
 
         <figure>
           <h2>Charlie</h2>
-          <img alt="Charlie Smith" src={'https://www.placecage.com/400/400'}/>
-          <p>Favorite book:</p>
+          <img alt="Charlie Smith" src={Charlie}/>
+          <p>Favorite book: Hologram For A King</p>
           <section id={styles.profilelinks}>
             <Link to="https://github.com/internetcharles">
               <img className={styles.icon} alt="github icon" src={Github}/>
