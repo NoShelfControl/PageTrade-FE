@@ -215,7 +215,7 @@ export default class Library extends Component {
                 )
                 ) : null}
               </ul>
-              <button onClick={this.handleCloseModal}>Close Modal</button>
+              <button id={styles.closebutton} onClick={this.handleCloseModal}>Close Modal</button>
             </ReactModal>
             <DragDropContext onDragEnd={this.onDragEnd}>
               <Droppable droppableId="droppable">
