@@ -26,7 +26,7 @@ export const postUserBook = (book) => {
 };
 
 export const getUserBooks = (id) => {
-  return get(`/api/v1/books/${id}`)
+  return get(`/api/v1/books/user/${id}`)
     .then(books => books.map(book => ({
       id: book.id,
       title: book.title,
@@ -40,7 +40,7 @@ export const getUserBooks = (id) => {
 };
 
 export const getAllBooks = () => {
-  return get('/api/v1/books/all')
+  return get('/api/v1/books/')
     .then(books => books.map(book => ({
       id: book.id,
       title: book.title,
@@ -54,7 +54,7 @@ export const getAllBooks = () => {
 };
 
 export const getSingleUserBooks = () => {
-  return get('/api/v1/books/')
+  return get('/api/v1/books/user/')
     .then(books => books.map(book => ({
       id: book.id,
       title: book.title,
@@ -69,12 +69,12 @@ export const getSingleUserBooks = () => {
 
 
 export const updateTradeable = (book, ownerId) => {
-  return put(`/api/v1/books/${ownerId}`, book)
+  return put(`/api/v1/books/user/${ownerId}`, book)
     .then(res => console.log(res));
 };
 
 export const deleteBook = (id) => {
-  return del(`/api/v1/books/${id}`)
+  return del(`/api/v1/books/user/${id}`)
     .then(res => console.log(res));
 };
 
