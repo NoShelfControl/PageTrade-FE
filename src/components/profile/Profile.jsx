@@ -31,7 +31,7 @@ export default function Profile() {
   if (loading) return <Loading />;
   if (loadingActions) return <Loading />;
   if (!user) return <Loading />;
-
+  console.log(user);
   return (
     <section>
       <Header />
