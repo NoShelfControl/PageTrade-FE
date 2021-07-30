@@ -1,4 +1,5 @@
 import React from 'react';
+import { propTypes } from 'react-bootstrap/esm/Image';
 import { useCurrentUser } from '../../context/AuthContext';
 import { StyledMenu } from './Menu.styled';
 

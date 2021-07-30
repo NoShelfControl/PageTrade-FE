@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-key */
-import React, { useState, useEffect } from 'react';
-import { getSingleUserBooks } from '../../services/books-api';
+
+import React from 'react';
 import styles from './Home.css';
 import Sidebar from '../sidebar/Sidebar';
 import { useAllBooks, useGlobalActions } from '../../hooks/ProfileHook';
@@ -22,27 +21,25 @@ export default function Home() {
 
   const booksElements = books[0].map((book, idx) => (
     <ul key={idx}>
-      {book.isTradeable === true ?
+      {book.isTradeable === true ? (
         <Link to={`/profile/${book.ownerId}`} key={idx}>
           <li key={idx}>
             <img key={idx} src={book.image} alt={book.title} />
           </li>
         </Link>
-        : null
-      }
+      ) : null}
     </ul>
   ));
 
   const watchListElements = books[1].map((book, idx) => (
     <ul key={idx}>
-      {book.isWatched === true ?
+      {book.isWatched === true ? (
         <li key={idx}>
           <Link to={`/profile/${book.ownerId}`} key={idx}>
             <img key={idx} src={book.image} alt={book.title} />
           </Link>
         </li>
-        : null
-      }
+      ) : null}
     </ul>
   ));
 
@@ -55,24 +52,23 @@ export default function Home() {
         <section className={styles.BookSection}>
           <div>
             <h2>RECENTLY ADDED FOR TRADE</h2>
-            <section className={styles.booksElements}>
-              {booksElements}
-            </section>
+            <section className={styles.booksElements}>{booksElements}</section>
           </div>
           <div>
-            <h2>RECENTLY ADDED TO WATCH LISTS</h2> 
+            <h2>RECENTLY ADDED TO WATCH LISTS</h2>
             <section className={styles.booksElements}>
               {watchListElements}
             </section>
           </div>
         </section>
-        <div className={styles.feed}>Feed
+        <div className={styles.feed}>
+          Feed
           <ul>
             {sortedActions.map((action, idx) => {
               return <li key={idx}>{action}</li>;
             })}
-          </ul></div>
-
+          </ul>
+        </div>
       </main>
       <Footer />
     </div>

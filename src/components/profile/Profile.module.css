@@ -6,7 +6,7 @@ $color4: #f28f3bff;
 $color5: #c8553dff;
 $color6: #f4f6f6;
 $color7: #b4c4ae;
-$color8: #8898AA;
+$color8: #8898aa;
 
 main {
   padding: 5px;
@@ -26,7 +26,7 @@ main {
   grid-template-rows: auto;
   margin: 50px;
 
-  #editProfile{
+  #editProfile {
     padding: 20px;
   }
 
@@ -39,7 +39,7 @@ main {
     right: 0%;
   }
 
-  h1{
+  h1 {
     width: 40%;
     justify-self: center;
     max-width: 300px;
@@ -49,7 +49,7 @@ main {
     box-shadow: 2px 2px 5px black;
     font-size: 25px;
   }
-  
+
   .bookDiv {
     border: solid 5px $color8;
     border-radius: 10px;
@@ -57,7 +57,7 @@ main {
     padding: 10px;
     background-color: $color3;
     box-shadow: 2px 2px 5px black;
-    
+
     .bookLists {
       border: solid 6px $color6;
       width: auto;
@@ -75,120 +75,116 @@ main {
     }
   }
 
-  
-.editButton {
-  padding: 3px;
-  margin-bottom: 10px;
-  grid-column-start: 2;
-  box-shadow: 2px 2px 3px black; 
-  background-color: $color2;
-  color: white;
-  font-size: 15px;
-  font-family: 'Lato', sans-serif;
-  border-radius: 10px;
-  padding: 5px;
-}
+  .editButton {
+    padding: 3px;
+    margin-bottom: 10px;
+    grid-column-start: 2;
+    box-shadow: 2px 2px 3px black;
+    background-color: $color2;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    border-radius: 10px;
+    padding: 5px;
+  }
 
   .editButton:hover {
     cursor: pointer;
   }
 
-.mailButton {
- border: solid $color2 5px;
- background-color: $color5;
- margin: 20px;
- text-decoration: none;
- padding: 5px;
- font-size: 15px;
- color: white;
- border-radius: 5px;
- box-shadow: 1px 1px 2px black;
+  .mailButton {
+    border: solid $color2 5px;
+    background-color: $color5;
+    margin: 20px;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px black;
+  }
+
+  .modal {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    right: 33%;
+    top: 15%;
+    background-color: $color8;
+    border-radius: 5px;
+  }
+
+  .closeButton {
+    border: solid red 2px;
+    position: absolute;
+    bottom: 10%;
+    right: 10;
+    box-shadow: 0 1px 5px $color2;
+    cursor: pointer;
+  }
+
+  .bookLists li {
+    width: 150px;
+    margin-top: 10px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .sectionHeader {
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    width: 150px;
+    margin: 20px;
+  }
+
+  .feedSection {
+    bottom: 10;
+  }
+
+  .bio {
+    width: 60%;
+  }
+
+  .bioText {
+    height: 175px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: solid 1px black;
+    box-shadow: 1px 1px 3px black;
+    color: white;
+    background-color: #dfd8d8;
+    padding-right: 25px;
+    overflow: auto;
+    margin-bottom: 10px;
+  }
+
+  .bioText p {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .feed {
+    width: 60%;
+    border-radius: 5px;
+    background-color: $color7;
+    border: solid black 1px;
+    box-shadow: 1px 1px 3px black;
+    color: $color2;
+    padding-right: 25px;
+    overflow: auto;
+  }
+
+  .feed li {
+    list-style: none;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  li {
+    margin-left: 10px;
+  }
 }
-
-.modal {
-  width: 500px;
-  height: 250px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: absolute;
-  right: 33%;
-  top: 15%;
-  background-color: $color8;
-  border-radius: 5px;
-}
-
-.closeButton {
-  border: solid red 2px;
-  position: absolute;
-  bottom: 10%;
-  right: 10;
-  box-shadow: 0 1px 5px $color2;
-  cursor: pointer;
-}
-
-
-.bookLists li {
-  width: 150px;
-  margin-top: 10px;
-  font-family: 'Lato', sans-serif;
-}
-
-.sectionHeader {
-  font-family: 'Lato', sans-serif;
-  font-size: 25px;
-  font-weight: 800;
-  width: 150px;
-  margin: 20px;
-}
-
-.feedSection {
- bottom: 10;
-}
-
-.bio {
-  width: 60%;  
-}
-
-.bioText {
-  height: 175px;
-  margin-top: 15px;
-  border-radius: 5px;
-  border: solid 1px black;
-  box-shadow: 1px 1px 3px black;
-  color: white;
-  background-color: #dfd8d8;
-  padding-right: 25px;
-  overflow: auto;
-  margin-bottom: 10px;
-}
-
-.bioText p {
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.feed {
-  width: 60%;
-  border-radius: 5px;
-  background-color: $color7;
-  border: solid black 1px;
-  box-shadow: 1px 1px 3px black;
-  color: $color2;
-  padding-right: 25px;
-  overflow: auto;
-
-}
-
-.feed li {
-  list-style: none;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-li {
-  margin-left: 10px;
-}
-}
-

@@ -6,10 +6,6 @@ export const postSignup = (email, password) =>
 export const postLogin = (email, password) =>
   post('/api/v1/signin', { email, password });
 
-export const getVerify = () =>
-  get('/api/v1/verify');
+export const getVerify = () => get('/api/v1/verify');
 
-export const updateUser = (user) =>
-  put('/api/v1/users', user);
-
-
+export const updateUser = (user) => put('/api/v1/users', user);

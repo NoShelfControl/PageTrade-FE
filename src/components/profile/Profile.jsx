@@ -48,7 +48,7 @@ export default function Profile() {
                       className={styles.closeButton}
                       onClick={() => setModalStatus(false)}
                     >
-                    X
+                      X
                     </button>
                   </div>
                 </ReactModal>

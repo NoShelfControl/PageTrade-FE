@@ -7,7 +7,7 @@ body {
   $color5: #c8553dff;
   $color6: #f4f6f6;
   $color7: #b4c4ae;
-  $color8: #8898AA;
+  $color8: #8898aa;
 }
 
 .bigDiv {
@@ -33,7 +33,7 @@ body {
 }
 
 .bigDiv:hover .deleteButton {
-  display: block
+  display: block;
 }
 
 .name {

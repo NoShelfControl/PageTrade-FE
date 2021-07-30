@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getSingleUserBooks, 
-  getUserBooks, 
-  getUserActions, 
-  getGlobalActions, 
-  getAllBooks} 
-  from '../services/books-api';
+import { useState, useEffect } from 'react';
+import {
+  getSingleUserBooks,
+  getUserBooks,
+  getUserActions,
+  getGlobalActions,
+  getAllBooks,
+} from '../services/books-api';
 
 export const ProfileHook = (id) => {
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ export const ProfileHook = (id) => {
 
   useEffect(() => {
     getUserBooks(id)
-      .then(books => setUserBooks(books))
+      .then((books) => setUserBooks(books))
       .finally(() => setLoading(false));
   }, []);
 
@@ -25,7 +26,7 @@ export const useSingleUserBooks = () => {
 
   useEffect(() => {
     getSingleUserBooks()
-      .then(books => setSingleUserBooks(books))
+      .then((books) => setSingleUserBooks(books))
       .finally(() => setLoading(false));
   }, []);
 
@@ -38,7 +39,7 @@ export const useAllBooks = () => {
 
   useEffect(() => {
     getAllBooks()
-      .then(books => setAllBooks(books))
+      .then((books) => setAllBooks(books))
       .finally(() => setLoading(false));
   }, []);
 
@@ -51,7 +52,7 @@ export const useUserActions = (id) => {
 
   useEffect(() => {
     getUserActions(id)
-      .then(userActions => setActions(userActions))
+      .then((userActions) => setActions(userActions))
       .then(() => setLoadingActions(false));
   }, []);
 
@@ -64,7 +65,7 @@ export const useGlobalActions = () => {
 
   useEffect(() => {
     getGlobalActions()
-      .then(userActions => setGlobalActions(userActions))
+      .then((userActions) => setGlobalActions(userActions))
       .then(() => setLoadingActions(false));
   }, []);
 

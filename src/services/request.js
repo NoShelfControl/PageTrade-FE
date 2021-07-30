@@ -7,7 +7,7 @@ const request = async(path, method, body) => {
     credentials: 'include',
     body: ['POST', 'PUT', 'PATCH'].includes(method)
       ? JSON.stringify(body)
-      : null  
+      : null,
   });
 
   const json = await res.json();
@@ -17,6 +17,6 @@ const request = async(path, method, body) => {
 };
 
 export const post = (path, body) => request(path, 'POST', body);
-export const get = path => request(path, 'GET');
+export const get = (path) => request(path, 'GET');
 export const put = (path, body) => request(path, 'PUT', body);
-export const del = path => request(path, 'DELETE');
+export const del = (path) => request(path, 'DELETE');

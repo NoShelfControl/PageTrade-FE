@@ -16,18 +16,18 @@ const Signup = () => {
   const signup = useSignup();
   const sortedActions = globalFeedSorter(globalActions);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     signup(email, password);
   };
-  
+
   if(loadingActions) return <Loading />;
 
   return (
     <section id={styles.Signup}>
       <img id={styles.signupgraphic} src={signupgraphic} />
       <section className={styles.authcontainer}>
-        <img id={styles.logo} src={logo} alt="PageTrade Logo"/>
+        <img id={styles.logo} src={logo} alt="PageTrade Logo" />
         <h2>Join Our Community Today</h2>
         <form id={styles.signupform} onSubmit={handleSubmit}>
           <input

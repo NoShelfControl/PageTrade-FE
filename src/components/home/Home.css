@@ -6,7 +6,7 @@ $color4: #f28f3bff;
 $color5: #c8553dff;
 $color6: #f4f6f6;
 $color7: #b4c4ae;
-$color8: #8898AA;
+$color8: #8898aa;
 
 body {
   background-color: $color6;
@@ -17,8 +17,8 @@ body {
   padding: 0px;
   box-sizing: border-box;
 
-main {
-  background-image: url('../../assets/gridbackground.png');
+  main {
+    background-image: url('../../assets/gridbackground.png');
     border: solid 10px $color2;
     border-radius: 5px;
     display: flex;
@@ -51,7 +51,7 @@ main {
         color: $color1;
       }
 
-      @media(max-width: 570px){
+      @media (max-width: 570px) {
         width: 100%;
       }
 
@@ -69,12 +69,12 @@ main {
     }
 
     div {
-    text-align: center;
-    justify-content: center;
-    margin: 20px;
-    padding: 20px;
-    border: solid 2px $color6;
-    box-shadow: 0 0 2px 2px $color7;
+      text-align: center;
+      justify-content: center;
+      margin: 20px;
+      padding: 20px;
+      border: solid 2px $color6;
+      box-shadow: 0 0 2px 2px $color7;
     }
 
     .feed {

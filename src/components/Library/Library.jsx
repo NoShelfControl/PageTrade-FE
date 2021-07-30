@@ -236,9 +236,10 @@ export default class Library extends Component {
               contentLabel="SearchBox"
               ariaHideApp={false}
             >
-              <form 
+              <form
                 className={styles.bookSearchForm}
-                onSubmit={this.handleSearch}>
+                onSubmit={this.handleSearch}
+              >
                 <input onChange={this.handleSearchChange} />
                 <button>Search</button>
               </form>

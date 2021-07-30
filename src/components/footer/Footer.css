@@ -5,7 +5,7 @@ $color4: #f28f3bff;
 $color5: #c8553dff;
 $color6: #f4f6f6;
 $color7: #b4c4ae;
-$color8: #8898AA;
+$color8: #8898aa;
 
 body {
   font-family: 'Lato', sans-serif;
@@ -22,7 +22,7 @@ body {
   padding: 10px;
   height: auto;
   font-family: 'Lato';
-  font-size: .8em;
+  font-size: 0.8em;
   background-color: $color7;
   border: solid 2px;
   box-shadow: 0 2px 5px;
@@ -51,15 +51,15 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 20px;
-  
+
   img {
     height: 150px;
   }
-  
+
   .icon {
     height: 30px;
   }
- 
+
   figure {
     opacity: 80%;
     display: flex;
@@ -82,35 +82,31 @@ body {
     .icon {
       border: none;
     }
-
   }
-  
+
   figure:hover {
-    opacity: 100%
+    opacity: 100%;
   }
 }
 
-  h1 {
-    background-color: $color3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-items: center;
-    font-weight: 600;
-    font-size: 3em;
-    letter-spacing: 8px;
-    color: $color6;
-    padding-right: 3%;
-  }
-
+h1 {
+  background-color: $color3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-items: center;
+  font-weight: 600;
+  font-size: 3em;
+  letter-spacing: 8px;
+  color: $color6;
+  padding-right: 3%;
+}
 
 .Careers {
-
   #thiscontainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 20px;
-
   }
   figure {
     opacity: 80%;
@@ -128,12 +124,10 @@ body {
 }
 
 .Terms {
-
   #thatcontainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 20px;
-
   }
   figure {
     opacity: 80%;

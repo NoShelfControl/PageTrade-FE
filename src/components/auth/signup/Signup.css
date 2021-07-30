@@ -6,7 +6,7 @@ $color4: #f28f3bff;
 $color5: #c8553dff;
 $color6: #f4f6f6;
 $color7: #b4c4ae;
-$color8: #8898AA;
+$color8: #8898aa;
 
 #Signup {
   padding: 100px;
@@ -26,7 +26,7 @@ $color8: #8898AA;
     height: auto;
     margin: 10px;
     box-shadow: 5px 5px 2px $color5;
-    }
+  }
 
   .authcontainer {
     padding: 60px;
@@ -41,32 +41,32 @@ $color8: #8898AA;
     justify-content: center;
     margin: 20px 15px;
     box-shadow: 5px 5px 2px $color5;
-    
+
     #logo {
       width: 200px;
-      }  
+    }
 
     #signupform {
       width: 200px;
       display: flex;
       flex-direction: column;
 
-    input {
-      border: solid 1px $color2;
-      box-shadow: 1px 1px 1px black;
-      font-size: 20px;
-      margin: 10px;
-    }
+      input {
+        border: solid 1px $color2;
+        box-shadow: 1px 1px 1px black;
+        font-size: 20px;
+        margin: 10px;
+      }
 
-    button {
-      cursor: pointer;
-      border: solid 4px $color7;
-      border-radius: 30px;
-      padding: 10px;
-      font-size: 20px;
-      margin: 20px;
+      button {
+        cursor: pointer;
+        border: solid 4px $color7;
+        border-radius: 30px;
+        padding: 10px;
+        font-size: 20px;
+        margin: 20px;
+      }
     }
-  }
   }
 
   .feedList {

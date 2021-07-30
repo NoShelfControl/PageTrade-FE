@@ -5,13 +5,14 @@ import Book from './Book';
 describe('book component', () => {
   afterEach(() => cleanup());
   it('renders books', () => {
-    const { asFragment } = render(<Book
-      name="harry potter"
-      author="evil woman"
-      src="harry.jpg"
-      provided={{ draggableProps: 'hello',
-        dragHandleProps: 'hello' }}
-    />);
+    const { asFragment } = render(
+      <Book
+        name="harry potter"
+        author="evil woman"
+        src="harry.jpg"
+        provided={{ draggableProps: 'hello', dragHandleProps: 'hello' }}
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

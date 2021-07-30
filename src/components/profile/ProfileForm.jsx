@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from './ProfileForm.module.css';
 import { useUpdateUser } from '../../context/AuthContext';
 
-export default function Profile(user) {
+export default function Profile({ user }) {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [status, setStatus] = useState('');
@@ -25,9 +26,7 @@ export default function Profile(user) {
 
   return (
     <section className={styles.editingContainer}>
-      <form 
-        className={styles.profileForm}
-        onSubmit={handleSubmit}>
+      <form className={styles.profileForm} onSubmit={handleSubmit}>
         <input
           className={styles.profileInputs}
           type="text"
