@@ -1,13 +1,25 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
-import styles from './Library.css';
+import styles from './Library.module.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { deleteBook, getBooks, getSingleUserBooks, postAction, postUserBook, updateTradeable } from '../../../services/books-api';
+import {
+  deleteBook,
+  getBooks,
+  getSingleUserBooks,
+  postAction,
+  postUserBook,
+  updateTradeable,
+} from '../../services/books-api';
 import ReactModal from 'react-modal';
 import Book from './Book';
-import Header from '../../header/Header';
-import Footer from '../../footer/Footer';
-import { move, reorder, getItemStyle, getListStyle } from '../../../utils/drag-functions';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+import {
+  move,
+  reorder,
+  getItemStyle,
+  getListStyle,
+} from '../../utils/drag-functions';
 
 export default class Library extends Component {
   constructor() {
@@ -20,7 +32,7 @@ export default class Library extends Component {
       showModal: false,
       search: '',
       searchResults: [],
-      show: false
+      show: false,
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -28,15 +40,21 @@ export default class Library extends Component {
 
   componentDidMount = async() => {
     this.fetchAndSort();
-  }
+  };
 
   fetchAndSort = async() => {
     const userBooks = await getSingleUserBooks();
-    const notForTrade = userBooks.filter(x => x.isTradeable == false && x.isWatched == false);
-    const forTrade = userBooks.filter(x => x.isTradeable == true);
-    const watched = userBooks.filter(x => x.isWatched == true);
-    this.setState({ items: notForTrade, selected: forTrade, watchList: watched });
-  }
+    const notForTrade = userBooks.filter(
+      (x) => x.isTradeable == false && x.isWatched == false
+    );
+    const forTrade = userBooks.filter((x) => x.isTradeable == true);
+    const watched = userBooks.filter((x) => x.isWatched == true);
+    this.setState({
+      items: notForTrade,
+      selected: forTrade,
+      watchList: watched,
+    });
+  };
 
   handleOpenModal() {
     this.setState({ showModal: true });
@@ -48,13 +66,13 @@ export default class Library extends Component {
 
   handleSearchChange = (e) => {
     this.setState({ search: e.target.value });
-  }
+  };
 
   handleSearch = async(e) => {
     e.preventDefault();
     const results = await getBooks(this.state.search);
     this.setState({ results });
-  }
+  };
 
   /**
    * A semi-generic way to handle multiple lists. Matches
@@ -64,10 +82,10 @@ export default class Library extends Component {
   id2List = {
     droppable: 'items',
     droppable2: 'selected',
-    droppable3: 'watchList'
+    droppable3: 'watchList',
   };
 
-  getList = id => this.state[this.id2List[id]];
+  getList = (id) => this.state[this.id2List[id]];
 
   onDragEnd = async(result) => {
     const { source, destination } = result;
@@ -102,22 +120,31 @@ export default class Library extends Component {
         destination
       );
       if(!result.droppable) {
-        this.setState({
-          selected: result.droppable2,
-          watchList: result.droppable3
-        }, () => this.alertItem(draggableId));
+        this.setState(
+          {
+            selected: result.droppable2,
+            watchList: result.droppable3,
+          },
+          () => this.alertItem(draggableId)
+        );
       }
       if(!result.droppable2) {
-        this.setState({
-          items: result.droppable,
-          watchList: result.droppable3
-        }, () => this.alertItem(draggableId));
+        this.setState(
+          {
+            items: result.droppable,
+            watchList: result.droppable3,
+          },
+          () => this.alertItem(draggableId)
+        );
       }
       if(!result.droppable3) {
-        this.setState({
-          items: result.droppable,
-          selected: result.droppable2,
-        }, () => this.alertItem(draggableId));
+        this.setState(
+          {
+            items: result.droppable,
+            selected: result.droppable2,
+          },
+          () => this.alertItem(draggableId)
+        );
       }
     }
   };
@@ -125,15 +152,20 @@ export default class Library extends Component {
   // Adds book from google API to items list
   addToList = async(book) => {
     const items = this.state.items;
-    if(book === items.find((x => x === book) || this.state.selected.find(x => x === book) || this.state.watchList.find(x => x === book))) {
+    if(
+      book ===
+      items.find(
+        ((x) => x === book) ||
+          this.state.selected.find((x) => x === book) ||
+          this.state.watchList.find((x) => x === book)
+      )
+    ) {
       alert('REPEAT BOOK');
-    }
-    else {
+    } else {
       await postUserBook(book);
       await postAction({ actionType: 'ADD', book: book.title });
       await this.fetchAndSort();
       this.handleCloseModal();
-      
     }
   };
 
@@ -141,13 +173,13 @@ export default class Library extends Component {
     // Looks for matching ID of item in selected list
     let selectedItem = '';
     // Checks which list is undefined, sets other two lists
-    selectedItem = this.state.items.find(x => x.id === draggableId);
+    selectedItem = this.state.items.find((x) => x.id === draggableId);
     if(selectedItem) {
       selectedItem.isTradeable = false;
       selectedItem.isWatched = false;
     }
     if(!selectedItem) {
-      selectedItem = this.state.selected.find(x => x.id === draggableId);
+      selectedItem = this.state.selected.find((x) => x.id === draggableId);
       if(selectedItem) {
         selectedItem.isTradeable = true;
         selectedItem.isWatched = false;
@@ -155,7 +187,7 @@ export default class Library extends Component {
       }
     }
     if(!selectedItem) {
-      selectedItem = this.state.watchList.find(x => x.id === draggableId);
+      selectedItem = this.state.watchList.find((x) => x.id === draggableId);
       if(selectedItem) {
         selectedItem.isTradeable = false;
         selectedItem.isWatched = true;
@@ -166,35 +198,37 @@ export default class Library extends Component {
     this.setState({ selectedItem }, () => {
       updateTradeable({ ...selectedItem }, selectedItem.id);
     });
-  }
+  };
 
   deleteItemsItem = async(index) => {
     const newList = this.state.items;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
     this.setState({ items: newList });
-  }
+  };
 
   deleteSelectedItem = async(index) => {
     const newList = this.state.selected;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
     this.setState({ selected: newList });
-  }
+  };
 
   deleteWatchListItem = async(index) => {
     const newList = this.state.watchList;
     const removedElement = newList.splice(index, 1);
     await deleteBook(removedElement[0].googleId);
     this.setState({ watchList: newList });
-  }
+  };
 
   render() {
     return (
       <>
         <Header />
         <section id={styles.Library}>
-          <button className={styles.addButton} onClick={this.handleOpenModal}>SEARCH BOOKS</button>
+          <button className={styles.addButton} onClick={this.handleOpenModal}>
+            SEARCH BOOKS
+          </button>
           <div className={styles.container}>
             <ReactModal
               className={styles.modal}
@@ -202,35 +236,47 @@ export default class Library extends Component {
               contentLabel="SearchBox"
               ariaHideApp={false}
             >
-              <form onSubmit={this.handleSearch}>
+              <form 
+                className={styles.bookSearchForm}
+                onSubmit={this.handleSearch}>
                 <input onChange={this.handleSearchChange} />
                 <button>Search</button>
               </form>
               <ul className={styles.resultList}>
-                {this.state.results ? this.state.results.map(book => (
-                  <div className={styles.resultItem} onClick={() => this.addToList(book)} key={book.id}>
-                    <img src={book.image} />
-                    <li>{book.title}</li>
-                  </div>
-                )
-                ) : null}
+                {this.state.results
+                  ? this.state.results.map((book) => (
+                    <div
+                      className={styles.resultItem}
+                      onClick={() => this.addToList(book)}
+                      key={book.id}
+                    >
+                      <img src={book.image} />
+                      <li>{book.title}</li>
+                    </div>
+                  ))
+                  : null}
               </ul>
-              <button id={styles.closebutton} onClick={this.handleCloseModal}>Close Modal</button>
+              <button id={styles.closebutton} onClick={this.handleCloseModal}>
+                X
+              </button>
             </ReactModal>
             <DragDropContext onDragEnd={this.onDragEnd}>
               <Droppable droppableId="droppable">
                 {(provided, snapshot) => (
                   <div>
                     <h2>LIBRARY</h2>
-                    <div className={styles.shelf}
+                    <div
+                      className={styles.shelf}
                       ref={provided.innerRef}
-                      style={getListStyle(snapshot.isDraggingOver)}>
-                      {this.state.items.length > 0 ?
+                      style={getListStyle(snapshot.isDraggingOver)}
+                    >
+                      {this.state.items.length > 0 ? (
                         this.state.items.map((item, index) => (
                           <Draggable
                             key={item.id}
                             draggableId={item.id}
-                            index={index}>
+                            index={index}
+                          >
                             {(provided, snapshot) => (
                               <Book
                                 src={item.image}
@@ -242,13 +288,13 @@ export default class Library extends Component {
                                   snapshot.isDragging,
                                   provided.draggableProps.style
                                 )}
-                              
                               />
                             )}
                           </Draggable>
-                        
-
-                        )) : <div className={styles.columntext}>Add A Book!</div>}
+                        ))
+                      ) : (
+                        <div className={styles.columntext}>Add A Book!</div>
+                      )}
                       {provided.placeholder}
                     </div>
                   </div>
@@ -262,34 +308,41 @@ export default class Library extends Component {
                     <div
                       className={styles.shelf}
                       ref={provided.innerRef}
-                      style={getListStyle(snapshot.isDraggingOver)}>
-                      {this.state.selected.length > 0 ? this.state.selected.map((item, index) => (
-                        <Draggable
-                          key={item.id}
-                          draggableId={item.id}
-                          index={index}>
-                          {(provided, snapshot) => (
-                            <Book
-                              src={item.image}
-                              name={item.title}
-                              handleDelete={() => this.deleteSelectedItem(index)}
-                              innerRef={provided.innerRef}
-                              provided={provided}
-                              style={getItemStyle(
-                                snapshot.isDragging,
-                                provided.draggableProps.style
-                              )}
-                            />
-                          )}
-                        </Draggable>
-                      ))
-                        : <div className={styles.columntext}>Add A Book!</div>}
+                      style={getListStyle(snapshot.isDraggingOver)}
+                    >
+                      {this.state.selected.length > 0 ? (
+                        this.state.selected.map((item, index) => (
+                          <Draggable
+                            key={item.id}
+                            draggableId={item.id}
+                            index={index}
+                          >
+                            {(provided, snapshot) => (
+                              <Book
+                                src={item.image}
+                                name={item.title}
+                                handleDelete={() =>
+                                  this.deleteSelectedItem(index)
+                                }
+                                innerRef={provided.innerRef}
+                                provided={provided}
+                                style={getItemStyle(
+                                  snapshot.isDragging,
+                                  provided.draggableProps.style
+                                )}
+                              />
+                            )}
+                          </Draggable>
+                        ))
+                      ) : (
+                        <div className={styles.columntext}>Add A Book!</div>
+                      )}
                       {provided.placeholder}
                     </div>
                   </div>
                 )}
               </Droppable>
-  
+
               <Droppable droppableId="droppable3">
                 {(provided, snapshot) => (
                   <div>
@@ -297,28 +350,35 @@ export default class Library extends Component {
                     <div
                       className={styles.shelf}
                       ref={provided.innerRef}
-                      style={getListStyle(snapshot.isDraggingOver)}>
-                      {this.state.watchList.length > 0 ? this.state.watchList.map((item, index) => (
-                        <Draggable
-                          key={item.id}
-                          draggableId={item.id}
-                          index={index}>
-                          {(provided, snapshot) => (
-                            <Book
-                              src={item.image}
-                              name={item.title}
-                              handleDelete={() => this.deleteWatchListItem(index)}
-                              innerRef={provided.innerRef}
-                              provided={provided}
-                              style={getItemStyle(
-                                snapshot.isDragging,
-                                provided.draggableProps.style
-                              )}
-                            />
-                          )}
-                        </Draggable>
-                      ))
-                        : <div className={styles.columntext}>Add A Book!</div>}
+                      style={getListStyle(snapshot.isDraggingOver)}
+                    >
+                      {this.state.watchList.length > 0 ? (
+                        this.state.watchList.map((item, index) => (
+                          <Draggable
+                            key={item.id}
+                            draggableId={item.id}
+                            index={index}
+                          >
+                            {(provided, snapshot) => (
+                              <Book
+                                src={item.image}
+                                name={item.title}
+                                handleDelete={() =>
+                                  this.deleteWatchListItem(index)
+                                }
+                                innerRef={provided.innerRef}
+                                provided={provided}
+                                style={getItemStyle(
+                                  snapshot.isDragging,
+                                  provided.draggableProps.style
+                                )}
+                              />
+                            )}
+                          </Draggable>
+                        ))
+                      ) : (
+                        <div className={styles.columntext}>Add A Book!</div>
+                      )}
                       {provided.placeholder}
                     </div>
                   </div>

@@ -3,13 +3,12 @@ import ProfileForm from './ProfileForm';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import { ProfileHook, useUserActions } from '../../hooks/ProfileHook';
-import styles from './Profile.css';
+import styles from './Profile.module.css';
 import ReactModal from 'react-modal';
 import { useCurrentUser } from '../../context/AuthContext';
 import { useParams } from 'react-router-dom';
 import { feedSorter } from '../../utils/feed-sorter';
 import Loading from '../loading/Loading';
-
 
 export default function Profile() {
   const [modalStatus, setModalStatus] = useState(false);
@@ -19,55 +18,56 @@ export default function Profile() {
   const { loadingActions, actions } = useUserActions(userId);
   const sortedActions = feedSorter(userId, actions);
 
+  const booksToTrade = userBooks.filter((book) => book.isTradeable === true);
+  const wishListBooks = userBooks.filter((book) => book.isWatched === true);
+  const collection = userBooks.filter(
+    (book) => book.isTradeable === false && book.isWatched === false
+  );
 
-  const booksToTrade = userBooks.filter(book => book.isTradeable === true);
-  const wishListBooks = userBooks.filter(book => book.isWatched === true);
-  const collection = userBooks.filter(book =>
-    book.isTradeable === false
-    && book.isWatched === false);
+  if(loading) return <Loading />;
+  if(loadingActions) return <Loading />;
+  if(!user) return <Loading />;
 
-
-
-  if (loading) return <Loading />;
-  if (loadingActions) return <Loading />;
-  if (!user) return <Loading />;
-  console.log(user);
   return (
     <section>
       <Header />
       <main>
         <section id={styles.Profile}>
           <section id={styles.editProfile}>
-            {user.id === userId ?
+            {user.id === userId ? (
               <div id={styles.thiscontainer}>
                 <ReactModal
                   className={styles.modal}
                   isOpen={modalStatus}
                   contentLabel="SearchBox"
-                  ariaHideApp={false}>
+                  ariaHideApp={false}
+                >
                   <div className={styles.form}>
                     <ProfileForm user={user} />
+                    <button
+                      className={styles.closeButton}
+                      onClick={() => setModalStatus(false)}
+                    >
+                    X
+                    </button>
                   </div>
-                  <button className={styles.button}
-                    onClick={() => setModalStatus(false)}>
-                Close
-                  </button>
                 </ReactModal>
                 <button
                   className={styles.editButton}
-                  onClick={() => setModalStatus(true)}>
-              Edit Profile
+                  onClick={() => setModalStatus(true)}
+                >
+                  Edit Profile
                 </button>
               </div>
-              : <a
-                className={styles.mailButton}
-                href={`mailto:${user.email}`}>
-            Request a Book</a>
-            }
+            ) : (
+              <a className={styles.mailButton} href={`mailto:${user.email}`}>
+                Request a Book
+              </a>
+            )}
             <div className={styles.sectionHeader}>Collection</div>
             <div className={styles.bookDiv}>
               <ul className={styles.bookLists}>
-                {collection.map(book => (
+                {collection.map((book) => (
                   <li key={book.id}>
                     <img src={book.image} alt={book.title} />
                     <p>{book.title}</p>
@@ -78,7 +78,7 @@ export default function Profile() {
             <div className={styles.sectionHeader}>Trade</div>
             <div className={styles.bookDiv}>
               <ul className={styles.bookLists}>
-                {booksToTrade.map(book => (
+                {booksToTrade.map((book) => (
                   <li key={book.id}>
                     <img src={book.image} alt={book.title} />
                     <p>{book.title}</p>
@@ -89,7 +89,7 @@ export default function Profile() {
             <div className={styles.sectionHeader}>Wish List</div>
             <div className={styles.bookDiv}>
               <ul className={styles.bookLists}>
-                {wishListBooks.map(book => (
+                {wishListBooks.map((book) => (
                   <li key={book.id}>
                     <img src={book.image} alt={book.title} />
                     <p>{book.title}</p>
@@ -98,8 +98,7 @@ export default function Profile() {
               </ul>
             </div>
           </section>
-          <div>
-          </div>
+          <div></div>
           <section id={styles.container2}>
             <h1>{user.userName ? user.userName : `User ${userId}`}</h1>
             <div className={styles.bio}>
@@ -120,6 +119,6 @@ export default function Profile() {
         </section>
       </main>
       <Footer />
-    </section >
+    </section>
   );
 }

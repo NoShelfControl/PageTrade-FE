@@ -118,7 +118,8 @@ main {
   border-radius: 5px;
 }
 
-.button {
+.closeButton {
+  border: solid red 2px;
   position: absolute;
   bottom: 10%;
   right: 10;
@@ -146,7 +147,7 @@ main {
 }
 
 .bio {
-  width: 100%;  
+  width: 60%;  
 }
 
 .bioText {
@@ -168,6 +169,7 @@ main {
 }
 
 .feed {
+  width: 60%;
   border-radius: 5px;
   background-color: $color7;
   border: solid black 1px;
@@ -189,3 +191,4 @@ li {
   margin-left: 10px;
 }
 }
+

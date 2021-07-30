@@ -9,7 +9,7 @@ import PrivateRoute from '../auth/private/PrivateRoute';
 import Signup from '../auth/signup/Signup';
 import Profile from '../profile/Profile';
 import Home from '../home/Home';
-import Library from './Library/Library';
+import Library from '../Library/Library';
 import About from '../footer/About';
 import Careers from '../footer/Careers';
 import Terms from '../footer/Terms';
