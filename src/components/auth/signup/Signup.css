@@ -70,6 +70,7 @@ $color8: #8898aa;
   }
 
   .feedList {
+    max-height: 60%;
     margin-top: 30px;
     opacity: 70%;
     font-family: 'Lato';
